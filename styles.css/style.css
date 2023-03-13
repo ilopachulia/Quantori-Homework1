@@ -17,71 +17,101 @@
   justify-content: center;
   align-items: center;
 }
-/* 
-.iphone_container {
-  position: relative;
-} */
 
 .iphone {
   width: 300px;
   height: 600px;
   background-color: #f2f2f2;
   border-radius: 40px;
-  border: 20px solid #d9d9d9;
-  margin: 50px auto;
+  border-left: 4px solid #f2d8b8;
+  border-top: 2px solid #f2d8b8;
+  border-right: 4px solid #f2d8b8;
+  border-bottom: 2px solid #f2d8b8;
   position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(5deg);
 }
-.iphone:before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 30px;
-  background-color: #d9d9d9;
+
+.side-left {
+  left: -20px;
+  transform-origin: right center;
+  transform: rotateY(-90deg);
+}
+
+.side-right {
+  right: -20px;
+  transform-origin: left center;
+  transform: rotateY(90deg);
+}
+.camera {
+  position: absolute;
+  top: 30px;
+  left: calc(40% - 10px);
+}
+
+.camera-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: black;
   position: absolute;
   top: 0;
   left: 0;
 }
-.iphone:after {
+
+.microphones {
+  position: relative;
+}
+
+.microphone-line {
+  width: 50px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: black;
+  position: absolute;
+  top: 3px;
+  left: 15px;
+}
+
+.microphone-dot {
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  background-color: black;
+  border-radius: 50%;
+  top: -15px;
+  left: 35px;
+}
+
+.camera::before {
   content: "";
   display: block;
-  width: 100%;
-  height: 50px;
-  background-color: #d9d9d9;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.iphone .screen {
-  width: 100%;
-  height: 90%;
+.screen {
+  position: absolute;
+  top: 60px;
+  width: 93%;
+  height: 78%;
   background-image: url("/img/screenphoto.jpg");
   background-size: cover;
-  position: absolute;
-  top: 30px;
+  margin: 0 10px;
 }
-.iphone .home-button {
+
+.home-button {
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 25px);
   width: 50px;
   height: 50px;
   background-color: #d9d9d9;
   border-radius: 50%;
   border: 2px solid grey;
-  position: absolute;
-  bottom: -10px;
-  left: calc(50% - 25px);
   z-index: 1;
-}
-.iphone .side-button {
-  width: 20px;
-  height: 40px;
-  background-color: #d9d9d9;
-  position: absolute;
-  top: calc(50% - 20px);
-}
-.iphone .side-button.left {
-  left: -20px;
-  border-radius: 0 10px 10px 0;
-}
-.iphone .side-button.right {
-  right: -20px;
-  border-radius: 10px 0 0 10px;
 }
