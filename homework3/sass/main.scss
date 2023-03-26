@@ -9,6 +9,7 @@ $darkgrey-color: #9d9fa2;
 $lightgrey-color: #f2f4f7;
 $lightred-color: #ffe0e3;
 $red-color: #dc3545;
+$lightblue-color: #5a9cfe;
 
 * {
   box-sizing: border-box;
@@ -112,6 +113,7 @@ $red-color: #dc3545;
         justify-content: space-between;
         align-items: center;
         gap: 32px;
+        margin-bottom: 32px;
 
         .main__content__body__info-boxes--box {
           width: 262px;
@@ -176,6 +178,65 @@ $red-color: #dc3545;
               line-height: 20px;
 
               color: $darkgrey-color;
+            }
+          }
+        }
+      }
+
+      .main__content__body__chart {
+        width: 1144px;
+        background-color: $white-color;
+        border-radius: 12px;
+
+        .main__content__body__chart--header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid $grey-color;
+          margin-bottom: 32px;
+          h1 {
+            padding: 24px 0px 16px 24px;
+            margin-bottom: 16px;
+            font-size: 18px;
+            line-height: 30px;
+          }
+
+          div {
+            padding-right: 24px;
+          }
+        }
+
+        .main__content__body__chart--content {
+          padding: 24px;
+        }
+
+        .main__content__body__chart--footer {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $white-color;
+          border-radius: 12px;
+          padding: 24px;
+
+          .main__content__body__chart--footer--elements-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 32px;
+
+            .main__content__body__chart--footer--circle--blue {
+              width: 12px;
+              height: 12px;
+              border-radius: 50px;
+              background-color: $lightblue-color;
+              margin-right: 8px;
+            }
+            .main__content__body__chart--footer--circle--green {
+              width: 12px;
+              height: 12px;
+              border-radius: 50px;
+              background-color: $green-color;
+              margin-right: 8px;
             }
           }
         }

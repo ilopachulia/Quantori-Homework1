@@ -86,6 +86,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 32px;
+  margin-bottom: 32px;
 }
 .main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box {
   width: 262px;
@@ -140,6 +141,58 @@
   font-size: 12px;
   line-height: 20px;
   color: #9d9fa2;
+}
+.main .main__content .main__content__body .main__content__body__chart {
+  width: 1144px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+.main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaecf0;
+  margin-bottom: 32px;
+}
+.main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--header h1 {
+  padding: 24px 0px 16px 24px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 30px;
+}
+.main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--header div {
+  padding-right: 24px;
+}
+.main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--content {
+  padding: 24px;
+}
+.main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+}
+.main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--footer .main__content__body__chart--footer--elements-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 32px;
+}
+.main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--footer .main__content__body__chart--footer--elements-container .main__content__body__chart--footer--circle--blue {
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+  background-color: #5a9cfe;
+  margin-right: 8px;
+}
+.main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--footer .main__content__body__chart--footer--elements-container .main__content__body__chart--footer--circle--green {
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+  background-color: #20c997;
+  margin-right: 8px;
 }
 
 /*# sourceMappingURL=main.css.map */
