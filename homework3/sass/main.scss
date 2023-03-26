@@ -1,6 +1,14 @@
 $white-color: #fff;
-$grey-color: #eaecf0;
 $black-color: #282828;
+$boxes-header-color: #5f6980;
+$boxes-text-emphasize-color: #282828;
+$green-color: #20c997;
+$lightgreen-color: #dcfff5;
+$grey-color: #eaecf0;
+$darkgrey-color: #9d9fa2;
+$lightgrey-color: #f2f4f7;
+$lightred-color: #ffe0e3;
+$red-color: #dc3545;
 
 * {
   box-sizing: border-box;
@@ -96,6 +104,80 @@ $black-color: #282828;
           align-items: center;
           padding: 9px 24px;
           gap: 4px;
+        }
+      }
+
+      .main__content__body__info-boxes {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 32px;
+
+        .main__content__body__info-boxes--box {
+          width: 262px;
+          height: 162px;
+          background-color: $white-color;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.06);
+
+          h3 {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
+
+            color: $boxes-header-color;
+          }
+
+          h1 {
+            font-size: 26px;
+            line-height: 40px;
+
+            color: $boxes-text-emphasize-color;
+            margin-bottom: 32px;
+          }
+
+          .main__content__body__info-boxes--box--change {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .main__content__body__info-boxes--change--difference {
+              color: $green-color;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              padding: 2px 10px;
+              gap: 10px;
+              width: 54px;
+              height: 24px;
+
+              background-color: $lightgreen-color;
+              border-radius: 100px;
+              margin-right: 8px;
+            }
+
+            .red {
+              background-color: #ffe0e3;
+              color: $red-color;
+            }
+
+            .grey {
+              background-color: $lightgrey-color;
+              color: $darkgrey-color;
+            }
+
+            .main__content__body__info-boxes--change--starting-point {
+              width: 160px;
+              height: 20px;
+
+              font-size: 12px;
+              line-height: 20px;
+
+              color: $darkgrey-color;
+            }
+          }
         }
       }
     }

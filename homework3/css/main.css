@@ -81,5 +81,65 @@
   padding: 9px 24px;
   gap: 4px;
 }
+.main .main__content .main__content__body .main__content__body__info-boxes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+.main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box {
+  width: 262px;
+  height: 162px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.06);
+}
+.main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box h3 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #5f6980;
+}
+.main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box h1 {
+  font-size: 26px;
+  line-height: 40px;
+  color: #282828;
+  margin-bottom: 32px;
+}
+.main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box .main__content__body__info-boxes--box--change {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box .main__content__body__info-boxes--box--change .main__content__body__info-boxes--change--difference {
+  color: #20c997;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 10px;
+  gap: 10px;
+  width: 54px;
+  height: 24px;
+  background-color: #dcfff5;
+  border-radius: 100px;
+  margin-right: 8px;
+}
+.main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box .main__content__body__info-boxes--box--change .red {
+  background-color: #ffe0e3;
+  color: #dc3545;
+}
+.main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box .main__content__body__info-boxes--box--change .grey {
+  background-color: #f2f4f7;
+  color: #9d9fa2;
+}
+.main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box .main__content__body__info-boxes--box--change .main__content__body__info-boxes--change--starting-point {
+  width: 160px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #9d9fa2;
+}
 
 /*# sourceMappingURL=main.css.map */
