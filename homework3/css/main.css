@@ -1,12 +1,85 @@
-.side-bar {
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+}
+.main .main__side-bar {
   width: 232px;
   height: 1024px;
   background-color: rebeccapurple;
 }
-
-.main {
+.main .main__content {
   width: 1208px;
-  background-color: red;
+  background-color: #eaecf0;
+}
+.main .main__content .navigation {
+  height: 66px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 32px;
+  background-color: #fff;
+}
+.main .main__content .navigation .navigation__search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px;
+  gap: 8px;
+  width: 905px;
+  height: 46px;
+  background: #fff;
+  border: 1px solid #eaecf0;
+  border-radius: 6px;
+}
+.main .main__content .main__content__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .main__content .main__content__body .main__content__body__premium-card {
+  width: 1144px;
+  height: 128px;
+  margin-bottom: 32px;
+  background: #282828;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px;
+  color: #fff;
+}
+.main .main__content .main__content__body .main__content__body__premium-card .main__content__body__premium-card--text .main__content__body__premium-card--text--headline {
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: -0.6px;
+  margin-bottom: 8px;
+}
+.main .main__content .main__content__body .main__content__body__premium-card .main__content__body__premium-card--text .main__content__body__premium-card--text--description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+.main .main__content .main__content__body .main__content__body__premium-card .main__content__body__premium-card--button {
+  background-color: #fff;
+  width: 143px;
+  height: 46px;
+  border-radius: 39px;
+  font-size: 16px;
+  line-height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 24px;
+  gap: 4px;
 }
 
 /*# sourceMappingURL=main.css.map */
