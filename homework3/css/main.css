@@ -9,15 +9,15 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
+  background-color: #eaecf0;
 }
 .main .main__side-bar {
   width: 232px;
   height: 1024px;
-  background-color: rebeccapurple;
+  background-color: #fff;
 }
 .main .main__content {
   width: 1208px;
-  background-color: #eaecf0;
 }
 .main .main__content .navigation {
   height: 66px;
@@ -146,6 +146,7 @@
   width: 1144px;
   background-color: #fff;
   border-radius: 12px;
+  margin-bottom: 32px;
 }
 .main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--header {
   display: flex;
@@ -193,6 +194,50 @@
   border-radius: 50px;
   background-color: #20c997;
   margin-right: 8px;
+}
+.main .main__content .main__content__body .main__content__body__app-list {
+  width: 1144px;
+  background-color: #fff;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+.main .main__content .main__content__body .main__content__body__app-list .main__content__body__app-list--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaecf0;
+}
+.main .main__content .main__content__body .main__content__body__app-list .main__content__body__app-list--header h1 {
+  padding: 24px 0px 16px 24px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 30px;
+}
+.main .main__content .main__content__body .main__content__body__app-list .main__content__body__app-list--header div {
+  padding-right: 24px;
+}
+.main .main__content .main__content__body .main__content__body__app-list .main__content__body__app-list--content .main__content__body__app-list--content--header .main__content__body__app-list--content--header--headline-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 54px;
+  background-color: #f2f4f7;
+  padding: 16px 24px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+.main .main__content .main__content__body .main__content__body__app-list .main__content__body__app-list--content .main__content__body__app-list--content--header .main__content__body__app-list--content--header--other-rows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 76px;
+  background-color: #fff;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eaecf0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 /*# sourceMappingURL=main.css.map */

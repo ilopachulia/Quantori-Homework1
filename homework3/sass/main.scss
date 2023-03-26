@@ -23,16 +23,16 @@ $lightblue-color: #5a9cfe;
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
+  background-color: $grey-color;
 
   .main__side-bar {
     width: 232px;
     height: 1024px;
-    background-color: rebeccapurple;
+    background-color: $white-color;
   }
 
   .main__content {
     width: 1208px;
-    background-color: $grey-color;
 
     .navigation {
       height: 66px;
@@ -187,6 +187,7 @@ $lightblue-color: #5a9cfe;
         width: 1144px;
         background-color: $white-color;
         border-radius: 12px;
+        margin-bottom: 32px;
 
         .main__content__body__chart--header {
           display: flex;
@@ -237,6 +238,62 @@ $lightblue-color: #5a9cfe;
               border-radius: 50px;
               background-color: $green-color;
               margin-right: 8px;
+            }
+          }
+        }
+      }
+
+      .main__content__body__app-list {
+        width: 1144px;
+        background-color: $white-color;
+        border-radius: 12px;
+        margin-bottom: 32px;
+
+        .main__content__body__app-list--header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid $grey-color;
+          h1 {
+            padding: 24px 0px 16px 24px;
+            margin-bottom: 16px;
+            font-size: 18px;
+            line-height: 30px;
+          }
+
+          div {
+            padding-right: 24px;
+          }
+        }
+
+        .main__content__body__app-list--content {
+          .main__content__body__app-list--content--header {
+            .main__content__body__app-list--content--header--headline-row {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              height: 54px;
+              background-color: $lightgrey-color;
+              padding: 16px 24px;
+
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 22px;
+            }
+            .main__content__body__app-list--content--header--other-rows {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              height: 76px;
+              background-color: $white-color;
+              padding: 16px 24px;
+              border-bottom: 1px solid #eaecf0;
+
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 22px;
             }
           }
         }
