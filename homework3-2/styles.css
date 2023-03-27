@@ -1,0 +1,33 @@
+body {
+  background: white;
+  text-align: center;
+  font-family: "Comfortaa", cursive;
+}
+svg {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
+
+.second-hand {
+  transform-origin: 50% 50%;
+  transform: rotate(90deg);
+  animation: rotate-sec 6s linear infinite;
+}
+
+.minute-hand {
+  transform-origin: 50% 50%;
+  transform: rotate(90deg);
+  animation: rotate-sec 36s linear infinite;
+}
+
+@keyframes rotate-sec {
+  to {
+    transform: rotate(450deg);
+  }
+}
+@keyframes rotate-min {
+  to {
+    transform: rotate(450deg);
+  }
+}
