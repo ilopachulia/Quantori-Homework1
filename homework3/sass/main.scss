@@ -10,7 +10,8 @@ $lightgrey-color: #f2f4f7;
 $lightred-color: #ffe0e3;
 $red-color: #dc3545;
 $lightblue-color: #5a9cfe;
-
+$orange-color: #fd7e14;
+$lightorange-color: #ffead8;
 * {
   box-sizing: border-box;
   padding: 0;
@@ -268,33 +269,107 @@ $lightblue-color: #5a9cfe;
 
         .main__content__body__app-list--content {
           .main__content__body__app-list--content--header {
-            .main__content__body__app-list--content--header--headline-row {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
+            .grid-container {
+              height: 494px;
+              width: 1144px;
+              border-radius: 12px;
 
-              height: 54px;
-              background-color: $lightgrey-color;
-              padding: 16px 24px;
-
-              font-weight: 400;
-              font-size: 14px;
-              line-height: 22px;
-            }
-            .main__content__body__app-list--content--header--other-rows {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-
-              height: 76px;
-              background-color: $white-color;
-              padding: 16px 24px;
-              border-bottom: 1px solid #eaecf0;
+              display: grid;
+              grid-template-columns: repeat(6, 1fr);
+              grid-template-rows: repeat(6, 1fr);
 
               font-weight: 400;
               font-size: 14px;
               line-height: 22px;
+              color: $boxes-header-color;
+
+              .wrapper {
+                background-color: $lightgrey-color;
+                padding: 24px;
+              }
+
+              .header {
+                height: 54px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+              }
+
+              .row {
+                height: 76px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                border-bottom: 1px solid $grey-color;
+                padding: 24px;
+
+                .active {
+                  width: 57px;
+                  height: 24px;
+                  background-color: $lightgreen-color;
+                  color: $green-color;
+                  font-weight: 600;
+                  font-size: 12px;
+                  align-items: center;
+                  padding: 2px 10px;
+                  border-radius: 12px;
+                }
+                .pending {
+                  width: 68px;
+                  height: 24px;
+                  background-color: $lightorange-color;
+                  align-items: center;
+                  padding: 2px 10px;
+                  border-radius: 100px;
+
+                  font-size: 12px;
+                  line-height: 20px;
+                  font-weight: 600;
+                  text-align: center;
+
+                  color: $orange-color;
+                }
+
+                .cancelled {
+                  width: 79px;
+                  height: 24px;
+                  align-items: center;
+                  padding: 2px 10px;
+                  background-color: $lightgrey-color;
+                  border-radius: 100px;
+
+                  font-weight: 600;
+                  font-size: 12px;
+                  line-height: 20px;
+                  text-align: center;
+
+                  color: $boxes-header-color;
+                }
+              }
+
+              .brand {
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 22px;
+                color: $boxes-text-emphasize-color;
+              }
             }
+          }
+        }
+
+        .main__content__body__app-list--footer {
+          height: 92px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .main__content__body__app-list--footer--page-number {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 30px;
+
+            color: #282828;
+            margin: 0 20px;
           }
         }
       }

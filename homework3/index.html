@@ -320,65 +320,581 @@
             </div>
             <div class="main__content__body__app-list--content">
               <div class="main__content__body__app-list--content--header">
-                <div
-                  class="main__content__body__app-list--content--header--headline-row"
-                >
-                  <div>Source</div>
-                  <div>Amount</div>
-                  <div>Status</div>
-                  <div>User ID</div>
-                  <div>Joined</div>
-                  <div>Group</div>
+                <div class="grid-container">
+                  <div class="header wrapper">Source</div>
+                  <div class="header wrapper">Amount</div>
+                  <div class="header wrapper">Status</div>
+                  <div class="header wrapper">User ID</div>
+                  <div class="header wrapper">Joined</div>
+                  <div class="header wrapper">Group</div>
+                  <div class="row brand">
+                    <svg
+                      width="64"
+                      height="64"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g filter="url(#filter0_d_1_332)">
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          fill="white"
+                        />
+                        <path
+                          d="M23.2382 34.7905L21.913 35.2687L21.8425 39.1621L26.4298 37.507C24.8551 36.9862 23.7067 36.0682 23.2382 34.7905Z"
+                          fill="#FDBD39"
+                        />
+                        <path
+                          d="M23.932 30.6725L19.3332 32.3317L21.9131 35.2696L23.2384 34.7914C22.771 33.5179 23.0594 32.0801 23.932 30.6725Z"
+                          fill="#F69833"
+                        />
+                        <path
+                          d="M31.6701 25.0535C25.8144 27.166 22.0387 31.5261 23.2386 34.7905L44.4436 27.14C43.2436 23.8756 37.5258 22.941 31.6701 25.0535Z"
+                          fill="#FECF33"
+                        />
+                        <path
+                          d="M36.0108 36.878C41.8665 34.7655 45.6486 30.4251 44.4423 27.141L23.2373 34.7904C24.4436 38.0756 30.1551 38.9905 36.0108 36.878Z"
+                          fill="#EE6723"
+                        />
+                        <path
+                          d="M44.4421 27.14L23.2382 34.7905C23.6529 35.9216 25.2371 36.4788 27.4581 36.4788C29.6244 36.4788 32.397 35.9497 35.2875 34.9069C41.1432 32.7944 45.2621 29.3731 44.4421 27.14"
+                          fill="#F69833"
+                        />
+                        <path
+                          d="M40.2222 25.4526C38.057 25.4526 35.2833 25.9818 32.3928 27.0245C26.5371 29.137 22.4182 32.5573 23.2382 34.7904L44.4432 27.1399C44.0274 26.0088 42.4443 25.4526 40.2222 25.4526"
+                          fill="#FDBD39"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M36.3151 37.7149C37.5067 38.8127 38.4267 39.3689 39.0509 39.3689C39.2162 39.3731 39.3783 39.3263 39.514 39.2348C40.2814 38.7025 39.6962 36.9029 39.0709 35.487L39.0214 35.3768L38.9151 35.4361C38.8351 35.4818 38.7488 35.5286 38.6604 35.5764L38.572 35.6242L38.613 35.7157C39.4951 37.7138 39.4951 38.6401 39.2267 38.8262C39.1804 38.8584 39.1193 38.874 39.0435 38.874C38.8235 38.874 38.1509 38.7254 36.6583 37.35C35.2731 36.0744 33.6836 34.201 32.1805 32.0729C30.6784 29.9459 29.4458 27.824 28.71 26.0983C27.9184 24.2426 27.9353 23.3776 28.19 23.2009C28.2332 23.1707 28.2932 23.1562 28.369 23.1562C28.6342 23.1562 29.4489 23.3548 31.3015 25.198L31.47 25.3654L31.4889 25.1294C31.4984 25.0098 31.5089 24.8892 31.5205 24.7686L31.5257 24.7166L31.4879 24.6803C29.7689 23.0086 28.8384 22.6582 28.3616 22.6582C28.1974 22.6541 28.0363 22.7008 27.9005 22.7923C27.3142 23.1999 27.4311 24.3767 28.2468 26.2916C28.9963 28.0496 30.2468 30.2037 31.7689 32.3588C33.292 34.5139 34.9057 36.4164 36.3151 37.7149Z"
+                          fill="#EE6723"
+                        />
+                        <path
+                          d="M36.1531 36.8177L36.1447 36.9258C35.9963 38.7347 35.6068 40.9096 34.59 40.9979C34.5689 41 34.5479 41 34.5279 41C33.8373 41 33.1837 40.0228 32.5868 38.0964C32.0205 36.2729 31.5816 33.8257 31.3511 31.2048C31.1195 28.5839 31.1226 26.0982 31.3605 24.2051C31.6195 22.1425 32.1121 21.0655 32.8258 21.0031C32.8468 21.001 32.8689 21 32.89 21C33.391 21 34.1458 21.5603 34.9184 24.1698L34.4142 24.2654C34.1563 23.3942 33.8752 22.6852 33.5963 22.1966C33.3384 21.7464 33.0868 21.498 32.89 21.498C32.8837 21.498 32.8774 21.498 32.87 21.499C32.5605 21.526 32.11 22.2662 31.8595 24.2665C31.6258 26.1253 31.6226 28.5746 31.8511 31.1611C32.0795 33.7487 32.511 36.1596 33.0668 37.9498C33.3152 38.7513 33.5879 39.4125 33.8563 39.8606C34.1026 40.2744 34.3415 40.502 34.5279 40.502C34.5342 40.502 34.5405 40.502 34.5468 40.501C34.8426 40.476 35.4005 39.7046 35.6352 36.9923L36.1531 36.8177Z"
+                          fill="#EE6723"
+                        />
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          stroke="#F2F4F7"
+                        />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_d_1_332"
+                          x="0"
+                          y="0"
+                          width="64"
+                          height="64"
+                          filterUnits="userSpaceOnUse"
+                          color-interpolation-filters="sRGB"
+                        >
+                          <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="1" />
+                          <feGaussianBlur stdDeviation="5" />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_1_332"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_1_332"
+                            result="shape"
+                          />
+                        </filter>
+                      </defs>
+                    </svg>
+                    Zeppelin
+                  </div>
+                  <div class="row">686.00</div>
+                  <div class="row">
+                    <div class="active">Active</div>
+                  </div>
+                  <div class="row">114423</div>
+                  <div class="row">October</div>
+                  <div class="row">Design</div>
+                  <div class="row brand">
+                    <svg
+                      width="64"
+                      height="64"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g filter="url(#filter0_d_1_364)">
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          fill="white"
+                        />
+                        <path
+                          d="M27.5313 44.75C29.9981 44.75 32.0001 42.748 32.0001 40.2812V35.8125H27.5313C25.0646 35.8125 23.0626 37.8145 23.0626 40.2812C23.0626 42.748 25.0646 44.75 27.5313 44.75Z"
+                          fill="#0ACF83"
+                        />
+                        <path
+                          d="M23.0626 31.3438C23.0626 28.877 25.0646 26.875 27.5313 26.875H32.0001V35.8125H27.5313C25.0646 35.8125 23.0626 33.8105 23.0626 31.3438Z"
+                          fill="#A259FF"
+                        />
+                        <path
+                          d="M23.0626 22.4062C23.0626 19.9395 25.0646 17.9375 27.5313 17.9375H32.0001V26.875H27.5313C25.0646 26.875 23.0626 24.873 23.0626 22.4062Z"
+                          fill="#F24E1E"
+                        />
+                        <path
+                          d="M32.0001 17.9375H36.4688C38.9356 17.9375 40.9376 19.9395 40.9376 22.4062C40.9376 24.873 38.9356 26.875 36.4688 26.875H32.0001V17.9375Z"
+                          fill="#FF7262"
+                        />
+                        <path
+                          d="M40.9376 31.3438C40.9376 33.8105 38.9356 35.8125 36.4688 35.8125C34.0021 35.8125 32.0001 33.8105 32.0001 31.3438C32.0001 28.877 34.0021 26.875 36.4688 26.875C38.9356 26.875 40.9376 28.877 40.9376 31.3438Z"
+                          fill="#1ABCFE"
+                        />
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          stroke="#F2F4F7"
+                        />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_d_1_364"
+                          x="0"
+                          y="0"
+                          width="64"
+                          height="64"
+                          filterUnits="userSpaceOnUse"
+                          color-interpolation-filters="sRGB"
+                        >
+                          <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="1" />
+                          <feGaussianBlur stdDeviation="5" />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_1_364"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_1_364"
+                            result="shape"
+                          />
+                        </filter>
+                      </defs>
+                    </svg>
+                    Figma
+                  </div>
+                  <div class="row">864.00</div>
+                  <div class="row">
+                    <div class="pending">Pending</div>
+                  </div>
+                  <div class="row">76223</div>
+                  <div class="row">June</div>
+                  <div class="row">Finance</div>
+                  <div class="row brand">
+                    <svg
+                      width="64"
+                      height="64"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g filter="url(#filter0_d_1_390)">
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          fill="white"
+                        />
+                        <path
+                          d="M21.1461 34.538C21.1461 35.5656 21.3707 36.3544 21.6645 36.8317C22.0497 37.4568 22.624 37.7222 23.2096 37.7222C23.9648 37.7222 24.6557 37.5341 25.9872 35.6857C27.0541 34.2043 28.3108 32.1249 29.1565 30.8213L30.5887 28.6127C31.5835 27.0788 32.7351 25.3738 34.0554 24.218C35.1336 23.2747 36.296 22.7506 37.4662 22.7506C39.4308 22.7506 41.3022 23.8933 42.7343 26.0364C44.3018 28.3834 45.0626 31.3398 45.0626 34.3905C45.0626 36.2043 44.7064 37.5369 44.1003 38.5897C43.5148 39.6078 42.3735 40.6252 40.4536 40.6252V37.7217C42.0975 37.7217 42.5077 36.2056 42.5077 34.4706C42.5077 31.9981 41.9333 29.2543 40.668 27.2937C39.7702 25.903 38.6066 25.0533 37.3263 25.0533C35.9417 25.0533 34.8274 26.1017 33.5751 27.9703C32.9094 28.9632 32.226 30.1732 31.4585 31.5386L30.6137 33.0407C28.9169 36.0611 28.487 36.7487 27.6385 37.8836C26.1514 39.8711 24.8814 40.6247 23.2096 40.6247C21.2263 40.6247 19.9722 39.7627 19.1955 38.4638C18.5615 37.4054 18.2501 36.0166 18.2501 34.4342L21.1461 34.538Z"
+                          fill="#0081FB"
+                        />
+                        <path
+                          d="M20.5336 26.2407C21.8613 24.1865 23.7775 22.75 25.9752 22.75C27.2479 22.75 28.5134 23.1281 29.8344 24.2109C31.2796 25.3945 32.82 27.3446 34.7418 30.5572L35.4308 31.7098C37.0942 34.4912 38.0406 35.9221 38.5945 36.5968C39.3068 37.4633 39.8056 37.7217 40.4537 37.7217C42.0976 37.7217 42.5077 36.2056 42.5077 34.4705L45.0626 34.39C45.0626 36.2038 44.7065 37.5364 44.1003 38.5892C43.5148 39.6073 42.3735 40.6247 40.4537 40.6247C39.2601 40.6247 38.2028 40.3645 37.0336 39.2573C36.1351 38.4076 35.0839 36.8981 34.2754 35.5412L31.8707 31.5096C30.6643 29.4863 29.5571 27.9778 28.917 27.2946C28.2278 26.5598 27.342 25.6727 25.9285 25.6727C24.7845 25.6727 23.8129 26.4784 22.9998 27.711L20.5336 26.2407Z"
+                          fill="url(#paint0_linear_1_390)"
+                        />
+                        <path
+                          d="M25.9284 25.6727C24.7844 25.6727 23.8128 26.4784 22.9998 27.711C21.8501 29.4525 21.1467 32.0466 21.1467 34.5378C21.1467 35.5654 21.3713 36.3542 21.6651 36.8315L19.1955 38.4636C18.5615 37.4053 18.2501 36.0164 18.2501 34.434C18.2501 31.5563 19.037 28.5569 20.5336 26.2407C21.8613 24.1865 23.7775 22.75 25.9752 22.75L25.9284 25.6727Z"
+                          fill="url(#paint1_linear_1_390)"
+                        />
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          stroke="#F2F4F7"
+                        />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_d_1_390"
+                          x="0"
+                          y="0"
+                          width="64"
+                          height="64"
+                          filterUnits="userSpaceOnUse"
+                          color-interpolation-filters="sRGB"
+                        >
+                          <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="1" />
+                          <feGaussianBlur stdDeviation="5" />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_1_390"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_1_390"
+                            result="shape"
+                          />
+                        </filter>
+                        <linearGradient
+                          id="paint0_linear_1_390"
+                          x1="23.4203"
+                          y1="37.9508"
+                          x2="41.8038"
+                          y2="39.7056"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-color="#0064E1" />
+                          <stop offset="0.4" stop-color="#0064E1" />
+                          <stop offset="0.83" stop-color="#0073EE" />
+                          <stop offset="1" stop-color="#0082FB" />
+                        </linearGradient>
+                        <linearGradient
+                          id="paint1_linear_1_390"
+                          x1="23.7918"
+                          y1="35.7582"
+                          x2="23.7918"
+                          y2="28.9266"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-color="#0082FB" />
+                          <stop offset="1" stop-color="#0064E0" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    Meta
+                  </div>
+                  <div class="row">176.00</div>
+                  <div class="row">
+                    <div class="cancelled">Cancelled</div>
+                  </div>
+                  <div class="row">89453</div>
+                  <div class="row">March</div>
+                  <div class="row">Coding</div>
+                  <div class="row brand">
+                    <svg
+                      width="64"
+                      height="64"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g filter="url(#filter0_d_1_414)">
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          fill="white"
+                        />
+                        <g clip-path="url(#clip0_1_414)">
+                          <path
+                            d="M44.3651 23.6267L32.4419 19.3785L20.1977 23.5512L22.1802 39.3261L32.4419 45.0093L42.5431 39.4017L44.3651 23.6267Z"
+                            fill="#E23237"
+                          />
+                          <path
+                            d="M20.1977 23.5512L32.4419 19.3785V45.0093L22.1802 39.3356L20.1977 23.5512Z"
+                            fill="#B52E31"
+                          />
+                          <path
+                            d="M32.4231 22.3712L39.8527 38.9014L37.0772 38.8542L35.5856 35.1252H28.9207L27.2875 38.9014L24.6348 38.9486L32.4231 22.3712ZM32.4042 27.6673L29.8931 32.9161H34.6133L32.4042 27.6673Z"
+                            fill="white"
+                          />
+                        </g>
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          stroke="#F2F4F7"
+                        />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_d_1_414"
+                          x="0"
+                          y="0"
+                          width="64"
+                          height="64"
+                          filterUnits="userSpaceOnUse"
+                          color-interpolation-filters="sRGB"
+                        >
+                          <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="1" />
+                          <feGaussianBlur stdDeviation="5" />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_1_414"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_1_414"
+                            result="shape"
+                          />
+                        </filter>
+                        <clipPath id="clip0_1_414">
+                          <rect
+                            width="24.2624"
+                            height="25.7782"
+                            fill="white"
+                            transform="matrix(-1 0 0 1 44.3749 19.3125)"
+                          />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    Angular
+                  </div>
+                  <div class="row">49.00</div>
+                  <div class="row">
+                    <div class="active">Active</div>
+                  </div>
+                  <div class="row">11467</div>
+                  <div class="row">February</div>
+                  <div class="row">Marketing</div>
+                  <div class="row brand">
+                    <svg
+                      width="64"
+                      height="64"
+                      viewBox="0 0 64 64"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g filter="url(#filter0_d_1_438)">
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          fill="white"
+                        />
+                        <g clip-path="url(#clip0_1_438)">
+                          <path
+                            d="M40.3816 20.6875H45.797L32.2585 44.0415L18.7199 20.6875H29.0769L32.2585 26.1029L35.3723 20.6875H40.3816Z"
+                            fill="#41B883"
+                          />
+                          <path
+                            d="M18.7199 20.6875L32.2585 44.0415L45.797 20.6875H40.3816L32.2585 34.6999L24.0677 20.6875H18.7199Z"
+                            fill="#41B883"
+                          />
+                          <path
+                            d="M24.0674 20.6875L32.2583 34.7676L40.3814 20.6875H35.3721L32.2583 26.1029L29.0767 20.6875H24.0674Z"
+                            fill="#35495E"
+                          />
+                        </g>
+                        <rect
+                          x="10"
+                          y="9"
+                          width="44"
+                          height="44"
+                          rx="9.42857"
+                          stroke="#F2F4F7"
+                        />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_d_1_438"
+                          x="0"
+                          y="0"
+                          width="64"
+                          height="64"
+                          filterUnits="userSpaceOnUse"
+                          color-interpolation-filters="sRGB"
+                        >
+                          <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="1" />
+                          <feGaussianBlur stdDeviation="5" />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_1_438"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_1_438"
+                            result="shape"
+                          />
+                        </filter>
+                        <clipPath id="clip0_1_438">
+                          <rect
+                            width="27.0796"
+                            height="23.3751"
+                            fill="white"
+                            transform="translate(18.7197 20.6875)"
+                          />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    Vue
+                  </div>
+                  <div class="row">999.00</div>
+                  <div class="row"><div class="active">Active</div></div>
+                  <div class="row">67385</div>
+                  <div class="row">October</div>
+                  <div class="row">Finance</div>
                 </div>
-                <div
-                  class="main__content__body__app-list--content--header--other-rows"
-                >
-                  <div>Zeppelin</div>
-                  <div>686.00</div>
-                  <div>Active</div>
-                  <div>114423</div>
-                  <div>October</div>
-                  <div>Design</div>
-                </div>
-                <div
-                  class="main__content__body__app-list--content--header--other-rows"
-                >
-                  <div>Figma</div>
-                  <div>864.00</div>
-                  <div>Pending</div>
-                  <div>76223</div>
-                  <div>June</div>
-                  <div>Finance</div>
-                </div>
-                <div
-                  class="main__content__body__app-list--content--header--other-rows"
-                >
-                  <div>Meta</div>
-                  <div>176.00</div>
-                  <div>Cancelled</div>
-                  <div>89453</div>
-                  <div>March</div>
-                  <div>Coding</div>
-                </div>
-                <div
-                  class="main__content__body__app-list--content--header--other-rows"
-                >
-                  <div>Angular</div>
-                  <div>49.00</div>
-                  <div>Active</div>
-                  <div>11467</div>
-                  <div>February</div>
-                  <div>Marketing</div>
-                </div>
-                <div
-                  class="main__content__body__app-list--content--header--other-rows"
-                >
-                  <div>Vue</div>
-                  <div>999.00</div>
-                  <div>Active</div>
-                  <div>67385</div>
-                  <div>October</div>
-                  <div>Finance</div>
+                <div class="main__content__body__app-list--footer">
+                  <svg
+                    width="33"
+                    height="32"
+                    viewBox="0 0 33 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.16669 16H25.8334"
+                      stroke="#282828"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M7.16669 16L15.1667 24"
+                      stroke="#282828"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M7.16669 16L15.1667 8"
+                      stroke="#282828"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <div class="main__content__body__app-list--footer--page-number">1/15</div>
+                  <svg
+                    width="33"
+                    height="32"
+                    viewBox="0 0 33 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.16669 16H25.8334"
+                      stroke="#282828"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M17.8333 24L25.8333 16"
+                      stroke="#282828"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M17.8333 8L25.8333 16"
+                      stroke="#282828"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
