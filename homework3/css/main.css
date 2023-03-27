@@ -16,6 +16,49 @@
   height: 1024px;
   background-color: #fff;
 }
+.main .main__side-bar .main__side-bar--logo {
+  margin: 24px 0px 56px 20px;
+}
+.main .main__side-bar .main__side-bar--dashboard {
+  margin-left: 20px;
+}
+.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-header {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  color: #9d9fa2;
+  margin-bottom: 32px;
+}
+.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard {
+  display: flex;
+  justify-content: flex-start;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  color: #282828;
+}
+.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard svg {
+  margin-right: 10px;
+  margin-bottom: 16px;
+}
+.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section .main__side-bar--dashboard-section--analytics {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  color: #282828;
+  margin-left: 30px;
+  margin-bottom: 12px;
+}
+.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section .main__side-bar--dashboard-section--finance,
+.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section .main__side-bar--dashboard-section--job-board {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  color: #5f6980;
+  margin-bottom: 12px;
+  margin-left: 30px;
+}
 .main .main__content {
   width: 1208px;
 }

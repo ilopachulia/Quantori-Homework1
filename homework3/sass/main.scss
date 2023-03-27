@@ -1,5 +1,4 @@
 $white-color: #fff;
-$black-color: #282828;
 $boxes-header-color: #5f6980;
 $boxes-text-emphasize-color: #282828;
 $green-color: #20c997;
@@ -30,6 +29,54 @@ $lightorange-color: #ffead8;
     width: 232px;
     height: 1024px;
     background-color: $white-color;
+
+    .main__side-bar--logo {
+      margin: 24px 0px 56px 20px;
+    }
+    .main__side-bar--dashboard {
+      margin-left: 20px;
+
+      .main__side-bar--dashboard-header {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: 3px;
+        color: $darkgrey-color;
+        margin-bottom: 32px;
+      }
+
+      .main__side-bar--dashboard-section {
+        .main__side-bar--dashboard-section--dashboard {
+          svg {
+            margin-right: 10px;
+            margin-bottom: 16px;
+          }
+          display: flex;
+          justify-content: flex-start;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 22px;
+          color: $boxes-text-emphasize-color;
+        }
+        .main__side-bar--dashboard-section--analytics {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 22px;
+          color: $boxes-text-emphasize-color;
+          margin-left: 30px;
+          margin-bottom: 12px;
+        }
+        .main__side-bar--dashboard-section--finance,
+        .main__side-bar--dashboard-section--job-board {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 22px;
+          color: #5f6980;
+          margin-bottom: 12px;
+          margin-left: 30px;
+        }
+      }
+    }
   }
 
   .main__content {
@@ -67,7 +114,7 @@ $lightorange-color: #ffead8;
         height: 128px;
         margin-bottom: 32px;
 
-        background: $black-color;
+        background: $boxes-text-emphasize-color;
         border-radius: 16px;
 
         display: flex;
@@ -368,7 +415,7 @@ $lightorange-color: #ffead8;
             font-size: 18px;
             line-height: 30px;
 
-            color: #282828;
+            color: $boxes-text-emphasize-color;
             margin: 0 20px;
           }
         }
