@@ -33,10 +33,12 @@ $lightorange-color: #ffead8;
     .main__side-bar--logo {
       margin: 24px 0px 56px 20px;
     }
-    .main__side-bar--dashboard {
+    .main__side-bar--dashboard,
+    .main__side-bar--pages {
       margin-left: 20px;
 
-      .main__side-bar--dashboard-header {
+      .main__side-bar--dashboard-header,
+      .main__side-bar--pages-header {
         font-weight: 600;
         font-size: 12px;
         line-height: 20px;
@@ -46,36 +48,90 @@ $lightorange-color: #ffead8;
       }
 
       .main__side-bar--dashboard-section {
+        display: flex;
+        justify-content: flex-start;
+
+        .arrow-up {
+          margin-left: 75px;
+        }
         .main__side-bar--dashboard-section--dashboard {
           svg {
             margin-right: 10px;
             margin-bottom: 16px;
           }
-          display: flex;
-          justify-content: flex-start;
+        }
+
+        .main__side-bar--dashboard-section--dashboard--title {
           font-weight: 600;
           font-size: 14px;
           line-height: 22px;
           color: $boxes-text-emphasize-color;
         }
-        .main__side-bar--dashboard-section--analytics {
-          font-weight: 600;
-          font-size: 14px;
-          line-height: 22px;
-          color: $boxes-text-emphasize-color;
-          margin-left: 30px;
-          margin-bottom: 12px;
+      }
+      .main__side-bar--dashboard-section--analytics {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 22px;
+        color: $boxes-text-emphasize-color;
+        margin-left: 30px;
+        margin-bottom: 12px;
+      }
+      .main__side-bar--dashboard-section--finance,
+      .main__side-bar--dashboard-section--job-board {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 22px;
+        color: #5f6980;
+        margin-bottom: 12px;
+        margin-left: 30px;
+      }
+      .main__side-bar--dashboard-section--apps {
+        margin-bottom: 44px;
+      }
+
+      .main__side-bar--dashboard-section--messages,
+      .main__side-bar--dashboard-section--friends,
+      .main__side-bar--dashboard-section--apps,
+      .main__side-bar--pages-section--helpcenter,
+      .main__side-bar--dashboard-section--filemanager {
+        display: flex;
+        align-items: center;
+
+        .message-arrow {
+          margin-left: 65px;
         }
-        .main__side-bar--dashboard-section--finance,
-        .main__side-bar--dashboard-section--job-board {
+        .friends-arrow {
+          margin-left: 83px;
+        }
+
+        .apps-arrow {
+          margin-left: 102px;
+        }
+
+        .helpcenter-arrow {
+          margin-left: 53px;
+        }
+        .filemanager-arrow {
+          margin-left: 46px;
+        }
+
+        h2 {
           font-weight: 600;
           font-size: 14px;
           line-height: 22px;
           color: #5f6980;
-          margin-bottom: 12px;
-          margin-left: 30px;
+          padding: 12px;
         }
       }
+    }
+
+    .main__side-bar--footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 350px;
+      border-top: 1px solid $lightgrey-color;
+      padding: 14px;
     }
   }
 
