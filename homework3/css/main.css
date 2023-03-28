@@ -16,17 +16,25 @@
   height: 1024px;
   background-color: #fff;
 }
-.main .main__side-bar .main__side-bar--logo {
+@media (max-width: 375px) {
+  .main .main__side-bar {
+    display: none;
+  }
+}
+.main .main__side-bar--logo {
   margin: 24px 0px 56px 20px;
 }
-.main .main__side-bar .main__side-bar--dashboard,
-.main .main__side-bar .main__side-bar--pages {
+.main .main__side-bar--dashboard, .main .main__side-bar--pages {
   margin-left: 20px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-header,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--pages-header,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-header,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--pages-header {
+@media (max-width: 375px) {
+  .main .main__side-bar--dashboard, .main .main__side-bar--pages {
+    display: none;
+  }
+}
+.main .main__side-bar--dashboard .main__side-bar--dashboard-header,
+.main .main__side-bar--dashboard .main__side-bar--pages-header, .main .main__side-bar--pages .main__side-bar--dashboard-header,
+.main .main__side-bar--pages .main__side-bar--pages-header {
   font-weight: 600;
   font-size: 12px;
   line-height: 20px;
@@ -34,29 +42,24 @@
   color: #9d9fa2;
   margin-bottom: 32px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section, .main .main__side-bar--pages .main__side-bar--dashboard-section {
   display: flex;
   justify-content: flex-start;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section .arrow-up,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section .arrow-up {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section .arrow-up, .main .main__side-bar--pages .main__side-bar--dashboard-section .arrow-up {
   margin-left: 75px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard svg,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard svg {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard svg, .main .main__side-bar--pages .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard svg {
   margin-right: 10px;
   margin-bottom: 16px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard--title,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard--title {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard--title, .main .main__side-bar--pages .main__side-bar--dashboard-section .main__side-bar--dashboard-section--dashboard--title {
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
   color: #282828;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--analytics,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--analytics {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--analytics, .main .main__side-bar--pages .main__side-bar--dashboard-section--analytics {
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
@@ -64,10 +67,9 @@
   margin-left: 30px;
   margin-bottom: 12px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--finance,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--job-board,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--finance,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--job-board {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--finance,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--job-board, .main .main__side-bar--pages .main__side-bar--dashboard-section--finance,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--job-board {
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
@@ -75,93 +77,85 @@
   margin-bottom: 12px;
   margin-left: 30px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--apps,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--apps {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--apps, .main .main__side-bar--pages .main__side-bar--dashboard-section--apps {
   margin-bottom: 44px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--messages,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--friends,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--apps,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--messages,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--friends,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--apps,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--pages-section--helpcenter,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--filemanager {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--messages,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--friends,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--apps,
+.main .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager, .main .main__side-bar--pages .main__side-bar--dashboard-section--messages,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--friends,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--apps,
+.main .main__side-bar--pages .main__side-bar--pages-section--helpcenter,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--filemanager {
   display: flex;
   align-items: center;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .message-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .message-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .message-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .message-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .message-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--messages .message-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--friends .message-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--apps .message-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--pages-section--helpcenter .message-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .message-arrow {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .message-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .message-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .message-arrow,
+.main .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .message-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .message-arrow, .main .main__side-bar--pages .main__side-bar--dashboard-section--messages .message-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--friends .message-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--apps .message-arrow,
+.main .main__side-bar--pages .main__side-bar--pages-section--helpcenter .message-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .message-arrow {
   margin-left: 65px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .friends-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .friends-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .friends-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .friends-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .friends-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--messages .friends-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--friends .friends-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--apps .friends-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--pages-section--helpcenter .friends-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .friends-arrow {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .friends-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .friends-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .friends-arrow,
+.main .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .friends-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .friends-arrow, .main .main__side-bar--pages .main__side-bar--dashboard-section--messages .friends-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--friends .friends-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--apps .friends-arrow,
+.main .main__side-bar--pages .main__side-bar--pages-section--helpcenter .friends-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .friends-arrow {
   margin-left: 83px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .apps-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .apps-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .apps-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .apps-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .apps-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--messages .apps-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--friends .apps-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--apps .apps-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--pages-section--helpcenter .apps-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .apps-arrow {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .apps-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .apps-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .apps-arrow,
+.main .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .apps-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .apps-arrow, .main .main__side-bar--pages .main__side-bar--dashboard-section--messages .apps-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--friends .apps-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--apps .apps-arrow,
+.main .main__side-bar--pages .main__side-bar--pages-section--helpcenter .apps-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .apps-arrow {
   margin-left: 102px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .helpcenter-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .helpcenter-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .helpcenter-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .helpcenter-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .helpcenter-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--messages .helpcenter-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--friends .helpcenter-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--apps .helpcenter-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--pages-section--helpcenter .helpcenter-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .helpcenter-arrow {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .helpcenter-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .helpcenter-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .helpcenter-arrow,
+.main .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .helpcenter-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .helpcenter-arrow, .main .main__side-bar--pages .main__side-bar--dashboard-section--messages .helpcenter-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--friends .helpcenter-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--apps .helpcenter-arrow,
+.main .main__side-bar--pages .main__side-bar--pages-section--helpcenter .helpcenter-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .helpcenter-arrow {
   margin-left: 53px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .filemanager-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .filemanager-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .filemanager-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .filemanager-arrow,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .filemanager-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--messages .filemanager-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--friends .filemanager-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--apps .filemanager-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--pages-section--helpcenter .filemanager-arrow,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .filemanager-arrow {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--messages .filemanager-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--friends .filemanager-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--apps .filemanager-arrow,
+.main .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter .filemanager-arrow,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager .filemanager-arrow, .main .main__side-bar--pages .main__side-bar--dashboard-section--messages .filemanager-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--friends .filemanager-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--apps .filemanager-arrow,
+.main .main__side-bar--pages .main__side-bar--pages-section--helpcenter .filemanager-arrow,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--filemanager .filemanager-arrow {
   margin-left: 46px;
 }
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--messages h2,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--friends h2,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--apps h2,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter h2,
-.main .main__side-bar .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager h2,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--messages h2,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--friends h2,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--apps h2,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--pages-section--helpcenter h2,
-.main .main__side-bar .main__side-bar--pages .main__side-bar--dashboard-section--filemanager h2 {
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--messages h2,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--friends h2,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--apps h2,
+.main .main__side-bar--dashboard .main__side-bar--pages-section--helpcenter h2,
+.main .main__side-bar--dashboard .main__side-bar--dashboard-section--filemanager h2, .main .main__side-bar--pages .main__side-bar--dashboard-section--messages h2,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--friends h2,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--apps h2,
+.main .main__side-bar--pages .main__side-bar--pages-section--helpcenter h2,
+.main .main__side-bar--pages .main__side-bar--dashboard-section--filemanager h2 {
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
@@ -176,8 +170,19 @@
   border-top: 1px solid #f2f4f7;
   padding: 14px;
 }
+@media (max-width: 375px) {
+  .main .main__side-bar .main__side-bar--footer {
+    display: none;
+  }
+}
 .main .main__content {
   width: 1208px;
+}
+@media (max-width: 375px) {
+  .main .main__content {
+    width: 375px;
+    background-color: #fff;
+  }
 }
 .main .main__content .navigation {
   height: 66px;
@@ -187,17 +192,47 @@
   margin-bottom: 32px;
   background-color: #fff;
 }
+.main .main__content .navigation #appear {
+  display: none;
+}
+@media (max-width: 375px) {
+  .main .main__content .navigation {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
+    margin: 26px 16px 75px 16px;
+  }
+  .main .main__content .navigation svg {
+    display: none;
+  }
+  .main .main__content .navigation #appear {
+    display: inline-block;
+    order: 1;
+  }
+  .main .main__content .navigation #navigation-img {
+    order: 2;
+  }
+}
 .main .main__content .navigation .navigation__search {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0px 16px;
   gap: 8px;
+  color: #9d9fa2;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
   width: 905px;
   height: 46px;
   background: #fff;
   border: 1px solid #eaecf0;
   border-radius: 6px;
+}
+@media (max-width: 375px) {
+  .main .main__content .navigation .navigation__search {
+    order: 3;
+  }
 }
 .main .main__content .main__content__body {
   display: flex;
@@ -216,11 +251,27 @@
   padding: 36px;
   color: #fff;
 }
+@media (max-width: 375px) {
+  .main .main__content .main__content__body .main__content__body__premium-card {
+    width: 343px;
+    height: 196px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
 .main .main__content .main__content__body .main__content__body__premium-card .main__content__body__premium-card--text .main__content__body__premium-card--text--headline {
   font-size: 28px;
   line-height: 34px;
   letter-spacing: -0.6px;
   margin-bottom: 8px;
+}
+@media (max-width: 375px) {
+  .main .main__content .main__content__body .main__content__body__premium-card .main__content__body__premium-card--text .main__content__body__premium-card--text--headline {
+    font-size: 26px;
+    line-height: 38px;
+  }
 }
 .main .main__content .main__content__body .main__content__body__premium-card .main__content__body__premium-card--text .main__content__body__premium-card--text--description {
   font-weight: 400;
@@ -248,6 +299,11 @@
   gap: 32px;
   margin-bottom: 32px;
 }
+@media (max-width: 375px) {
+  .main .main__content .main__content__body .main__content__body__info-boxes {
+    flex-direction: column;
+  }
+}
 .main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box {
   width: 262px;
   height: 162px;
@@ -255,6 +311,21 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.06);
+}
+@media (max-width: 375px) {
+  .main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box .main__content__body__info-boxes--box {
+    width: 343px;
+    height: 132px;
+  }
+  .main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box .main__content__body__info-boxes--box h3 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box .main__content__body__info-boxes--box h1 {
+    font-size: 22px;
+    line-height: 38px;
+    margin-bottom: 26px;
+  }
 }
 .main .main__content .main__content__body .main__content__body__info-boxes .main__content__body__info-boxes--box h3 {
   font-size: 16px;
@@ -308,12 +379,24 @@
   border-radius: 12px;
   margin-bottom: 32px;
 }
+@media (max-width: 375px) {
+  .main .main__content .main__content__body .main__content__body__chart {
+    width: 343px;
+    height: 434px;
+  }
+}
 .main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #eaecf0;
   margin-bottom: 32px;
+}
+@media (max-width: 375px) {
+  .main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--header {
+    width: 343px;
+    height: 54px;
+  }
 }
 .main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--header h1 {
   padding: 24px 0px 16px 24px;
@@ -326,6 +409,14 @@
 }
 .main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--content {
   padding: 24px;
+  width: 1096px;
+  height: 288px;
+}
+@media (max-width: 375px) {
+  .main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--content {
+    width: 343px;
+    height: 380px;
+  }
 }
 .main .main__content .main__content__body .main__content__body__chart .main__content__body__chart--footer {
   display: flex;
@@ -361,6 +452,12 @@
   border-radius: 12px;
   margin-bottom: 32px;
 }
+@media (max-width: 375px) {
+  .main .main__content .main__content__body .main__content__body__app-list {
+    width: 343px;
+    height: 581px;
+  }
+}
 .main .main__content .main__content__body .main__content__body__app-list .main__content__body__app-list--header {
   display: flex;
   justify-content: space-between;
@@ -375,6 +472,13 @@
 }
 .main .main__content .main__content__body .main__content__body__app-list .main__content__body__app-list--header div {
   padding-right: 24px;
+}
+@media (max-width: 375px) {
+  .main .main__content .main__content__body .main__content__body__app-list .main__content__body__app-list--content {
+    width: 343px;
+    height: 581px;
+    overflow-x: auto;
+  }
 }
 .main .main__content .main__content__body .main__content__body__app-list .main__content__body__app-list--content .main__content__body__app-list--content--header .grid-container {
   height: 494px;
