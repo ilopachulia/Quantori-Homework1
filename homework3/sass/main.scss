@@ -1,3 +1,5 @@
+@import "./mixin";
+
 $white-color: #fff;
 $boxes-header-color: #5f6980;
 $boxes-text-emphasize-color: #282828;
@@ -11,6 +13,9 @@ $red-color: #dc3545;
 $lightblue-color: #5a9cfe;
 $orange-color: #fd7e14;
 $lightorange-color: #ffead8;
+
+// created color variables in order to use several times
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -30,11 +35,20 @@ $lightorange-color: #ffead8;
     height: 1024px;
     background-color: $white-color;
 
-    .main__side-bar--logo {
+    @include respond(mobile) {
+      display: none;
+    }
+
+    &--logo {
       margin: 24px 0px 56px 20px;
     }
-    .main__side-bar--dashboard,
-    .main__side-bar--pages {
+
+    &--dashboard,
+    &--pages {
+      @include respond(mobile) {
+        display: none;
+      }
+
       margin-left: 20px;
 
       .main__side-bar--dashboard-header,
@@ -81,7 +95,7 @@ $lightorange-color: #ffead8;
         font-weight: 600;
         font-size: 14px;
         line-height: 22px;
-        color: #5f6980;
+        color: $boxes-header-color;
         margin-bottom: 12px;
         margin-left: 30px;
       }
@@ -119,7 +133,7 @@ $lightorange-color: #ffead8;
           font-weight: 600;
           font-size: 14px;
           line-height: 22px;
-          color: #5f6980;
+          color: $boxes-header-color;
           padding: 12px;
         }
       }
@@ -132,12 +146,20 @@ $lightorange-color: #ffead8;
       margin-top: 350px;
       border-top: 1px solid $lightgrey-color;
       padding: 14px;
+
+      @include respond(mobile) {
+        display: none;
+      }
     }
   }
 
   .main__content {
     width: 1208px;
 
+    @include respond(mobile) {
+      width: 375px;
+      background-color: $white-color;
+    }
     .navigation {
       height: 66px;
       display: flex;
@@ -146,12 +168,44 @@ $lightorange-color: #ffead8;
       margin-bottom: 32px;
       background-color: $white-color;
 
+      #appear {
+        display: none;
+      }
+
+      @include respond(mobile) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 32px;
+        margin: 26px 16px 75px 16px;
+        svg {
+          display: none;
+        }
+
+        #appear {
+          display: inline-block;
+          order: 1;
+        }
+
+        #navigation-img {
+          order: 2;
+        }
+      }
+
       .navigation__search {
         display: flex;
         flex-direction: row;
         align-items: center;
         padding: 0px 16px;
         gap: 8px;
+
+        color: $darkgrey-color;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+
+        @include respond(mobile) {
+          order: 3;
+        }
 
         width: 905px;
         height: 46px;
@@ -165,9 +219,19 @@ $lightorange-color: #ffead8;
       display: flex;
       flex-direction: column;
       align-items: center;
+
       .main__content__body__premium-card {
         width: 1144px;
         height: 128px;
+
+        @include respond(mobile) {
+          width: 343px;
+          height: 196px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+        }
         margin-bottom: 32px;
 
         background: $boxes-text-emphasize-color;
@@ -186,6 +250,11 @@ $lightorange-color: #ffead8;
             line-height: 34px;
             letter-spacing: -0.6px;
             margin-bottom: 8px;
+
+            @include respond(mobile) {
+              font-size: 26px;
+              line-height: 38px;
+            }
           }
           .main__content__body__premium-card--text--description {
             font-weight: 400;
@@ -219,6 +288,10 @@ $lightorange-color: #ffead8;
         gap: 32px;
         margin-bottom: 32px;
 
+        @include respond(mobile) {
+          flex-direction: column;
+        }
+
         .main__content__body__info-boxes--box {
           width: 262px;
           height: 162px;
@@ -227,18 +300,34 @@ $lightorange-color: #ffead8;
           border-radius: 12px;
           box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.06);
 
+          @include respond(mobile) {
+            .main__content__body__info-boxes--box {
+              width: 343px;
+              height: 132px;
+
+              h3 {
+                font-size: 14px;
+                line-height: 22px;
+              }
+
+              h1 {
+                font-size: 22px;
+                line-height: 38px;
+                margin-bottom: 26px;
+              }
+            }
+          }
+
           h3 {
             font-size: 16px;
             font-weight: 400;
             line-height: 26px;
-
             color: $boxes-header-color;
           }
 
           h1 {
             font-size: 26px;
             line-height: 40px;
-
             color: $boxes-text-emphasize-color;
             margin-bottom: 32px;
           }
@@ -293,12 +382,23 @@ $lightorange-color: #ffead8;
         border-radius: 12px;
         margin-bottom: 32px;
 
+        @include respond(mobile) {
+          width: 343px;
+          height: 434px;
+        }
+
         .main__content__body__chart--header {
           display: flex;
           justify-content: space-between;
           align-items: center;
           border-bottom: 1px solid $grey-color;
           margin-bottom: 32px;
+
+          @include respond(mobile) {
+            width: 343px;
+            height: 54px;
+          }
+
           h1 {
             padding: 24px 0px 16px 24px;
             margin-bottom: 16px;
@@ -313,6 +413,14 @@ $lightorange-color: #ffead8;
 
         .main__content__body__chart--content {
           padding: 24px;
+
+          width: 1096px;
+          height: 288px;
+
+          @include respond(mobile) {
+            width: 343px;
+            height: 380px;
+          }
         }
 
         .main__content__body__chart--footer {
@@ -353,6 +461,11 @@ $lightorange-color: #ffead8;
         border-radius: 12px;
         margin-bottom: 32px;
 
+        @include respond(mobile) {
+          width: 343px;
+          height: 581px;
+        }
+
         .main__content__body__app-list--header {
           display: flex;
           justify-content: space-between;
@@ -371,6 +484,11 @@ $lightorange-color: #ffead8;
         }
 
         .main__content__body__app-list--content {
+          @include respond(mobile) {
+            width: 343px;
+            height: 581px;
+            overflow-x: auto;
+          }
           .main__content__body__app-list--content--header {
             .grid-container {
               height: 494px;
