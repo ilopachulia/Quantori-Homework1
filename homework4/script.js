@@ -108,7 +108,16 @@ getShorterStrings([
  *
  * Use: map
  */
-const getComputedStrings = (fish) => {};
+const getComputedStrings = (fish) => {
+  console.log('exercise - 5:',fish.map((item) => `${item.name} likes ${item.likes} `));
+  return fish.map((item) => `${item.name} likes ${item.likes} `);
+};
+getComputedStrings([
+  { name: "shark", likes: "ocean" },
+  { name: "turtle", likes: "pond" },
+  { name: "otter", likes: "fish biscuits" },
+]);
+
 /**
  * Exercise 6
  *
