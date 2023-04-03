@@ -394,7 +394,13 @@ const getSmallestColumn = (numbers) => {};
  * Write a function that returns the 2 biggest value of an array
  * [4,3,2,1] => [4,3]
  */
-const get2BiggestValues = (numbers) => {};
+const get2BiggestValues = (numbers) => {
+  numbers.sort((a, b) => b - a);
+  console.log("exercise - 18:", [numbers[0], numbers[1]]);
+  return [numbers[0], numbers[1]];
+};
+
+get2BiggestValues([4, 3, 2, 1]);
 /**
  * Exercise 19
  *
@@ -403,7 +409,24 @@ const get2BiggestValues = (numbers) => {};
  *
  * 'Return the number (count) of vowels in the given string.' => 15
  */
-const getNumberOfVowels = (string) => {};
+const getNumberOfVowels = (string) => {
+  let count = 0;
+  let vowels = ["a", "e", "i", "o", "u"];
+  let arr = [...string];
+
+  arr.map((item) => {
+    if (vowels.includes(item)) {
+      count++;
+    }
+  });
+
+  console.log("exercise - 19:", count);
+  return count;
+};
+
+getNumberOfVowels(
+  "Write a function that returns the number of vowels in a string in English"
+);
 /**
  * Exercise 20
  *
@@ -412,7 +435,31 @@ const getNumberOfVowels = (string) => {};
  * with capital odd.
  * 'abcdef' => ['AbCdEf', 'aBcDeF']
  */
-const getCapitalizedStrings = (string) => {};
+const getCapitalizedStrings = (string) => {
+  let arr = [...string];
+  let stringArr1 = [];
+  let stringArr2 = [];
+  let result = [];
+  arr.map((item, index) => {
+    if (index % 2 === 0) {
+      stringArr1.push(item.toUpperCase());
+    } else {
+      stringArr1.push(item);
+    }
+  });
+  arr.map((item, index) => {
+    if (index % 2 !== 0) {
+      stringArr2.push(item.toUpperCase());
+    } else {
+      stringArr2.push(item);
+    }
+  });
+  result.push(stringArr1.join("")), result.push(stringArr2.join(""));
+  console.log("exercise - 20:", result);
+  return result;
+};
+
+getCapitalizedStrings("abcdef");
 /**
  * Exercise 21
  *
@@ -439,7 +486,12 @@ const getCorrectString = (string) => {};
  * and returns an array of all their elements without nesting.
  * [1, 2, [3, 4], 5, [[6, 7], 8], 9] => [1, 2, 3, 4, 5, 6, 7, 8, 9]
  */
-const getFlattenedArray = (numbers) => {};
+const getFlattenedArray = (numbers) => {
+  let result = numbers.flat(Infinity);
+  console.log("exercise - 22:", result);
+};
+
+getFlattenedArray([1, 2, [3, 4], 5, [[6, 7], 8], 9]);
 /**
  * Exercise 23
  *
@@ -447,4 +499,22 @@ const getFlattenedArray = (numbers) => {};
  *
  * [1, 2, 2, 4, 5, 5] => [2, 5]
  */
-const getNotUniqueValues = (numbers) => {};
+const getNotUniqueValues = (numbers) => {
+  let helperArr = [];
+  let mainArr = [];
+
+  numbers.map((item) => {
+    if (!helperArr.includes(item)) {
+      helperArr.push(item);
+    } else {
+      mainArr.push(item);
+    }
+  });
+
+  let set = new Set(mainArr);
+  let result = [...set];
+  console.log("exercise - 23:", result);
+  return result;
+};
+
+getNotUniqueValues([1, 2, 2, 4, 5, 5]);
