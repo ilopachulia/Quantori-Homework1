@@ -109,7 +109,10 @@ getShorterStrings([
  * Use: map
  */
 const getComputedStrings = (fish) => {
-  console.log('exercise - 5:',fish.map((item) => `${item.name} likes ${item.likes} `));
+  console.log(
+    "exercise - 5:",
+    fish.map((item) => `${item.name} likes ${item.likes} `)
+  );
   return fish.map((item) => `${item.name} likes ${item.likes} `);
 };
 getComputedStrings([
@@ -128,7 +131,14 @@ getComputedStrings([
  *
  * We use: ...
  */
-const mergeObjects = (objects) => {};
+const mergeObjects = (objects) => {
+  let result = { ...objects[0], ...objects[1] };
+  console.log("exercise - 6:", result);
+  return result;
+};
+
+mergeObjects([{ name: "Alice" }, { age: 11 }]);
+
 /**
  * Exercise 7
  *
@@ -137,7 +147,13 @@ const mergeObjects = (objects) => {};
  *
  * Use: operator ... and Math.min
  */
-const getSmallestValue2 = (numbers) => {};
+const getSmallestValue2 = (numbers) => {
+  let result = Math.min(...numbers);
+  console.log("exercise - 7:", result);
+  return result;
+};
+
+getSmallestValue2([5, 200, -5, 41]);
 /**
  * Exercise 8
  *
@@ -146,7 +162,19 @@ const getSmallestValue2 = (numbers) => {};
  *
  * Use: reduce
  */
-const getOddValues2 = (numbers) => {};
+const getOddValues2 = (numbers) => {
+  let result = numbers.reduce((arr, number) => {
+    if (number % 2 !== 0) {
+      arr.push(number);
+    }
+    return arr;
+  }, []);
+  console.log("exercise - 8:", result);
+  return result;
+};
+
+getOddValues2([77, 2, 30, 51]);
+
 /**
  * Exercise 9
  *
@@ -164,7 +192,21 @@ const getOddValues2 = (numbers) => {};
  *
  * Use: reduce
  */
-const calculateTotal = (products) => {};
+const calculateTotal = (products) => {
+  let result = products.reduce((acc, curr) => {
+    return acc + curr.price * curr.count;
+  }, 0);
+  console.log("exercise - 9:", result);
+  return result;
+};
+
+calculateTotal([
+  { price: 10, count: 2 },
+  { price: 100, count: 1 },
+  { price: 2, count: 5 },
+  { price: 15, count: 6 },
+]);
+
 /**
  * Exercise 10
  *
@@ -173,7 +215,21 @@ const calculateTotal = (products) => {};
  *
  * Use: reduce and indexOf
  */
-const getUniqueValues = (numbers) => {};
+const getUniqueValues = (numbers) => {
+  // much easier way is using SET
+
+  let result = numbers.reduce((arr, curr) => {
+    if (arr.indexOf(curr) === -1) {
+      arr.push(curr);
+    }
+    return arr;
+  }, []);
+
+  console.log("exercise - 10:", result);
+  return result;
+};
+
+getUniqueValues([1, 2, 2, 4, 5, 5]);
 /**
  * Exercise 11
  *
