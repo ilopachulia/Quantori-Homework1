@@ -242,7 +242,31 @@ getUniqueValues([1, 2, 2, 4, 5, 5]);
  *
  * Use: switch case or object like a map structure
  */
-const getErrorMessage = (code) => {};
+
+const getErrorMessage = (code) => {
+  switch (code) {
+    case 500:
+      console.log("Exercise - 11:", "Server Error");
+      break;
+    case 401:
+      console.log("Exercise - 11:", "Authorization failed");
+      break;
+    case 402:
+      console.log("Exercise - 11:", "Server Error");
+      break;
+    case 403:
+      console.log("Exercise - 11:", "Access denied");
+      break;
+    case 404:
+      console.log("Exercise - 11:", "Not found");
+      break;
+    default:
+      console.log("Exercise - 11:", "Unknown error code: ${code}`");
+  }
+};
+
+getErrorMessage(403);
+
 /**
  * Exercise 12
  *
@@ -251,7 +275,13 @@ const getErrorMessage = (code) => {};
  *
  * Use: .sort()
  */
-const get2SmallestValues = (numbers) => {};
+const get2SmallestValues = (numbers) => {
+  let sortedArr = numbers.sort();
+  console.log("exercise - 12:", [sortedArr[0], sortedArr[1]]);
+  return [sortedArr[0], sortedArr[1]];
+};
+
+get2SmallestValues([4, 3, 2, 1]);
 /**
  * Exercise 13
  *
@@ -263,7 +293,18 @@ const get2SmallestValues = (numbers) => {};
  *}
  * output line with the message 'Name: Petr Ivanovich Vasiliev'
  */
-const getFullName = (user) => {};
+const getFullName = (user) => {
+  console.log(
+    "exercise - 13:",
+    `Name: ${user.firstName} ${user.patronymic} ${user.secondName}`
+  );
+  return `Name: ${user.firstName} ${user.patronymic} ${user.secondName}`;
+};
+getFullName({
+  firstName: "Peter",
+  secondName: "Vasiliev",
+  patronymic: "Ivanovich",
+});
 /**
  * Exercise 14
  *
@@ -274,7 +315,15 @@ const getFullName = (user) => {};
  *
  * Use: map
  */
-const multiplyTo = (numbers, multiplier) => {};
+const multiplyTo = (numbers, multiplier) => {
+  console.log(
+    "exercise - 14:",
+    numbers.map((item) => item * multiplier)
+  );
+  return numbers.map((item) => item * multiplier);
+};
+
+multiplyTo([1, 2, 3, 4], 5);
 /**
  * Exercise 15
  *
@@ -293,8 +342,24 @@ const multiplyTo = (numbers, multiplier) => {};
  * Use: filter, map, join
  */
 
-// const getÐ¡haracterNames = (characters, franchise) => {
-// }; should be corrected
+const getDicharacterNames = (characters, franchise) => {
+  const result = characters
+    .filter((item) => item.franchise === franchise)
+    .map((item) => item.name)
+    .join(", ");
+  console.log("exercise - 15:", result);
+  return result;
+};
+
+getDicharacterNames(
+  [
+    { name: "Batman", franchise: "DC" },
+    { name: "Ironman", franchise: "Marvel" },
+    { name: "Thor", franchise: "Marvel" },
+    { name: "Superman", franchise: "DC" },
+  ],
+  "Marvel"
+);
 
 // ----==== Advanced exercises (8 items) ====----
 /**
