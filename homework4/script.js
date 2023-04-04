@@ -374,7 +374,29 @@ getDicharacterNames(
  *]
  * => [1,2,3,4]
  */
-const getSmallestRow = (numbers) => {};
+const getSmallestRow = (numbers) => {
+  const result = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    let min = numbers[i][0];
+
+    for (let j = 1; j < numbers[i].length; j++) {
+      if (numbers[i][j] < min) {
+        min = numbers[i][j];
+      }
+    }
+    result.push(min);
+  }
+  console.log("exercise - 16:", result);
+  return result;
+};
+
+getSmallestRow([
+  [10, 1, 300, 4],
+  [20, 2, 300, 400],
+  [30, 3, 300, 4],
+  [40, 4, 300, 4],
+]);
 /**
  * Exercise 17
  *
@@ -387,7 +409,32 @@ const getSmallestRow = (numbers) => {};
  *]
  * => [1,2,3,4]
  */
-const getSmallestColumn = (numbers) => {};
+
+const getSmallestColumn = (numbers) => {
+  const result = [];
+
+  for (let i = 0; i < numbers[0].length; i++) {
+    let min = numbers[0][i];
+
+    for (let j = 1; j < numbers.length; j++) {
+      if (numbers[j][i] < min) {
+        min = numbers[j][i];
+      }
+    }
+
+    result.push(min);
+  }
+
+  console.log("exercise - 17:", result);
+  return result;
+};
+
+getSmallestColumn([
+  [1, 2, 3, 4],
+  [1, 2, 3, 4],
+  [1, 2, 30, 4],
+  [1, 2, 3, 40],
+]);
 /**
  * Exercise 18
  *
@@ -478,7 +525,33 @@ getCapitalizedStrings("abcdef");
  * N is an integer in the range [1..200,000]
  * S consists only of lowercase letters [a-z]
  */
-const getCorrectString = (string) => {};
+const getCorrectString = (string) => {
+  let prevChar = "";
+  let currChar = "";
+  let currCount = 0;
+  let result = "";
+
+  for (let i = 0; i < string.length; i++) {
+    currChar = string.charAt(i);
+
+    if (currChar === prevChar) {
+      currCount++;
+    } else {
+      currCount = 1;
+    }
+
+    if (currCount <= 2) {
+      result += currChar;
+    }
+
+    prevChar = currChar;
+  }
+  console.log("exercise - 21:", result);
+  return result;
+};
+
+getCorrectString("uuuuxaaaaxuuu");
+
 /**
  * Exercise 22
  *
