@@ -117,17 +117,30 @@
       }
     }
 
-    // implementing search function part
-    function handleSearch(event) {
-      // Update search term state with user input
-      console.log(event.target.value);
-      const filteredItemsArr = items.filter((item) =>
-        item.toLowerCase().includes(event.target.value.toLowerCase())
-      );
-      console.log(filteredItemsArr); // log the filtered items array
-      setFilteredItems(filteredItemsArr);
-    }
+    // // implementing search function part
+    // function handleSearch(event) {
+    //   // Update search term state with user input
+    //   console.log(event.target.value);
+    //   const filteredItemsArr = items.filter((item) =>
+    //     item.toLowerCase().includes(event.target.value.toLowerCase())
+    //   );
+    //   console.log(filteredItemsArr); // log the filtered items array
+    //   setFilteredItems(filteredItemsArr);
+    // }
+    let searchTimeoutId;
 
+    function handleSearch(event) {
+      // Clear any previously set timeout
+      clearTimeout(searchTimeoutId);
+
+      // Set a new timeout to call handleSearch after a delay
+      searchTimeoutId = setTimeout(() => {
+        const filteredItemsArr = items.filter((item) =>
+          item.toLowerCase().includes(event.target.value.toLowerCase())
+        );
+        setFilteredItems(filteredItemsArr);
+      }, 500);
+    }
     // main content functions
     const mainContainer = createElementWithClasses("main", ["main-container"]);
     const searchFieldWrapper = createElementWithClasses("div", [
@@ -161,8 +174,6 @@
     appContainer.innerHTML = "";
     appContainer.append(App());
   }
-
-
 
   // initial render
   renderApp();
