@@ -70,8 +70,10 @@
 
   function App() {
     const [items, setItems] = useState([]);
+    const [filteredItems, setFilteredItems] = useState([]);
     const [modalContainer, setModalContainer] = useState(null);
 
+    /// modal component functions
     function openModal() {
       const body = document.querySelector("body");
       body.style.backgroundColor = "#D2D2D2";
@@ -115,6 +117,18 @@
       }
     }
 
+    // implementing search function part
+    function handleSearch(event) {
+      // Update search term state with user input
+      console.log(event.target.value);
+      const filteredItemsArr = items.filter((item) =>
+        item.toLowerCase().includes(event.target.value.toLowerCase())
+      );
+      console.log(filteredItemsArr); // log the filtered items array
+      setFilteredItems(filteredItemsArr);
+    }
+
+    // main content functions
     const mainContainer = createElementWithClasses("main", ["main-container"]);
     const searchFieldWrapper = createElementWithClasses("div", [
       "searchFieldWrapper",
@@ -124,8 +138,15 @@
     const searchField = createInputWithClasses("search", "Search Task", [
       "inputField",
     ]);
+
+    // adding eventlistener to search input
+    searchField.addEventListener("input", handleSearch);
+
     const button = Button({ text: "+ New Task", onClick: openModal });
+    // const list = List({ items });
+    //creating list using filteredItems
     const list = List({ items });
+
     searchFieldWrapper.append(searchField, button);
     mainContainer.append(heading, searchFieldWrapper, list, modalContainer);
     return mainContainer;
@@ -140,6 +161,8 @@
     appContainer.innerHTML = "";
     appContainer.append(App());
   }
+
+
 
   // initial render
   renderApp();
