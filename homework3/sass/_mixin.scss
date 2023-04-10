@@ -1,5 +1,46 @@
 @mixin respond($breakpoint) {
+  @if $breakpoint == large-desktop {
+    @media (max-width: 1920px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (max-width: 1680px) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    @media (max-width: 1522px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-landscape {
+    @media (max-width: 1330px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media (max-width: 1150px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile-landscape {
+    @media (max-width: 910px) {
+      @content;
+    }
+  }
+  @if $breakpoint == large-mobile {
+    @media (max-width: 800px) {
+      @content;
+    }
+  }
   @if $breakpoint == mobile {
+    @media (max-width: 650px) {
+      @content;
+    }
+  }
+  @if $breakpoint == small-mobile {
     @media (max-width: 375px) {
       @content;
     }

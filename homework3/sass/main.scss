@@ -1,5 +1,7 @@
 @import "./mixin";
 
+// sass --watch sass/main.scss:css/main.css
+
 $white-color: #fff;
 $boxes-header-color: #5f6980;
 $boxes-text-emphasize-color: #282828;
@@ -31,11 +33,15 @@ $lightorange-color: #ffead8;
   background-color: $grey-color;
 
   .main__side-bar {
-    width: 232px;
+    // width: 232px;
+    width: 13vw; //
     height: 1024px;
     background-color: $white-color;
 
-    @include respond(mobile) {
+    @include respond(small-mobile) {
+      display: none;
+    }
+    @include respond(tablet-landscape) {
       display: none;
     }
 
@@ -45,7 +51,7 @@ $lightorange-color: #ffead8;
 
     &--dashboard,
     &--pages {
-      @include respond(mobile) {
+      @include respond(small-mobile) {
         display: none;
       }
 
@@ -68,6 +74,19 @@ $lightorange-color: #ffead8;
         .arrow-up {
           margin-left: 75px;
         }
+
+        @include respond(desktop) {
+          .arrow-up {
+            margin-left: 55px;
+          }
+        }
+
+        @include respond(laptop) {
+          .arrow-up {
+            margin-left: 25px;
+          }
+        }
+
         .main__side-bar--dashboard-section--dashboard {
           svg {
             margin-right: 10px;
@@ -111,22 +130,64 @@ $lightorange-color: #ffead8;
         display: flex;
         align-items: center;
 
-        .message-arrow {
-          margin-left: 65px;
-        }
-        .friends-arrow {
-          margin-left: 83px;
+        @include respond(large-desktop) {
+          .message-arrow {
+            margin-left: 65px;
+          }
+          .friends-arrow {
+            margin-left: 83px;
+          }
+
+          .apps-arrow {
+            margin-left: 102px;
+          }
+
+          .helpcenter-arrow {
+            margin-left: 53px;
+          }
+          .filemanager-arrow {
+            margin-left: 46px;
+          }
         }
 
-        .apps-arrow {
-          margin-left: 102px;
+        @include respond(desktop) {
+          .message-arrow {
+            margin-left: 45px;
+          }
+          .friends-arrow {
+            margin-left: 63px;
+          }
+
+          .apps-arrow {
+            margin-left: 82px;
+          }
+
+          .helpcenter-arrow {
+            margin-left: 33px;
+          }
+          .filemanager-arrow {
+            margin-left: 26px;
+          }
         }
 
-        .helpcenter-arrow {
-          margin-left: 53px;
-        }
-        .filemanager-arrow {
-          margin-left: 46px;
+        @include respond(laptop) {
+          .message-arrow {
+            margin-left: 12px;
+          }
+          .friends-arrow {
+            margin-left: 30px;
+          }
+
+          .apps-arrow {
+            margin-left: 49px;
+          }
+
+          .helpcenter-arrow {
+            margin-left: 0px;
+          }
+          .filemanager-arrow {
+            margin-left: -6px;
+          }
         }
 
         h2 {
@@ -147,17 +208,22 @@ $lightorange-color: #ffead8;
       border-top: 1px solid $lightgrey-color;
       padding: 14px;
 
-      @include respond(mobile) {
+      @include respond(small-mobile) {
         display: none;
       }
     }
   }
 
   .main__content {
-    width: 1208px;
+    // width: 1208px;
+    width: 100vw; // px changed into vw
 
-    @include respond(mobile) {
+    @include respond(small-mobile) {
       width: 375px;
+      background-color: $white-color;
+    }
+
+    @include respond(tablet-landscape) {
       background-color: $white-color;
     }
     .navigation {
@@ -172,7 +238,7 @@ $lightorange-color: #ffead8;
         display: none;
       }
 
-      @include respond(mobile) {
+      @include respond(small-mobile) {
         flex-wrap: wrap;
         justify-content: space-between;
         gap: 32px;
@@ -191,6 +257,29 @@ $lightorange-color: #ffead8;
         }
       }
 
+      @include respond(tablet-landscape) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 32px;
+        margin: 26px 16px 75px 16px;
+
+        #appear {
+          display: inline-block;
+        }
+      }
+
+      @include respond(mobile-landscape) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 26px 16px 75px 16px;
+      }
+
+      @include respond(mobile) {
+        svg {
+          display: none;
+        }
+      }
+
       .navigation__search {
         display: flex;
         flex-direction: row;
@@ -203,8 +292,24 @@ $lightorange-color: #ffead8;
         font-size: 14px;
         line-height: 22px;
 
+        @include respond(small-mobile) {
+          order: 3;
+        }
         @include respond(mobile) {
           order: 3;
+        }
+
+        @include respond(tablet-landscape) {
+          background-color: $white-color;
+          width: 500px;
+        }
+        @include respond(mobile-landscape) {
+          width: 250px;
+        }
+
+        @include respond(mobile) {
+          width: 80vw;
+          margin: 0 auto;
         }
 
         width: 905px;
@@ -224,9 +329,26 @@ $lightorange-color: #ffead8;
         width: 1144px;
         height: 128px;
 
-        @include respond(mobile) {
+        @include respond(small-mobile) {
           width: 343px;
           height: 196px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+        }
+
+        @include respond(tablet-landscape) {
+          width: 890px;
+        }
+
+        @include respond(mobile-landscape) {
+          width: 550px;
+        }
+
+        @include respond(mobile) {
+          width: 360px;
+          height: 180px;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -260,6 +382,10 @@ $lightorange-color: #ffead8;
             font-weight: 400;
             font-size: 14px;
             line-height: 22px;
+
+            @include respond(mobile) {
+              margin-bottom: 30px;
+            }
           }
         }
 
@@ -288,10 +414,28 @@ $lightorange-color: #ffead8;
         gap: 32px;
         margin-bottom: 32px;
 
-        @include respond(mobile) {
+        @include respond(small-mobile) {
           flex-direction: column;
         }
 
+        @include respond(tablet-landscape) {
+          display: flex;
+          flex-wrap: wrap;
+          margin-right: 30px;
+          margin-left: 30px;
+        }
+
+        @include respond(tablet-landscape) {
+          display: flex;
+          flex-wrap: wrap;
+          margin-right: 30px;
+          margin-left: 30px;
+        }
+
+        @include respond(mobile) {
+          justify-content: center;
+          align-items: center;
+        }
         .main__content__body__info-boxes--box {
           width: 262px;
           height: 162px;
@@ -300,7 +444,7 @@ $lightorange-color: #ffead8;
           border-radius: 12px;
           box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.06);
 
-          @include respond(mobile) {
+          @include respond(small-mobile) {
             .main__content__body__info-boxes--box {
               width: 343px;
               height: 132px;
@@ -382,9 +526,19 @@ $lightorange-color: #ffead8;
         border-radius: 12px;
         margin-bottom: 32px;
 
-        @include respond(mobile) {
+        @include respond(small-mobile) {
           width: 343px;
           height: 434px;
+        }
+
+        @include respond(tablet-landscape) {
+          box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+        }
+        @include respond(tablet) {
+          width: 90vw;
+          margin-right: 30px;
+          margin-left: 30px;
+          box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
         }
 
         .main__content__body__chart--header {
@@ -394,7 +548,7 @@ $lightorange-color: #ffead8;
           border-bottom: 1px solid $grey-color;
           margin-bottom: 32px;
 
-          @include respond(mobile) {
+          @include respond(small-mobile) {
             width: 343px;
             height: 54px;
           }
@@ -417,9 +571,13 @@ $lightorange-color: #ffead8;
           width: 1096px;
           height: 288px;
 
-          @include respond(mobile) {
+          @include respond(small-mobile) {
             width: 343px;
             height: 380px;
+          }
+
+          @include respond(tablet) {
+            width: 90%;
           }
         }
 
@@ -461,9 +619,18 @@ $lightorange-color: #ffead8;
         border-radius: 12px;
         margin-bottom: 32px;
 
-        @include respond(mobile) {
+        @include respond(small-mobile) {
           width: 343px;
           height: 581px;
+        }
+
+        @include respond(tablet) {
+          width: 90vw;
+          box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        @include respond(tablet-landscape) {
+          box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
         }
 
         .main__content__body__app-list--header {
@@ -471,6 +638,7 @@ $lightorange-color: #ffead8;
           justify-content: space-between;
           align-items: center;
           border-bottom: 1px solid $grey-color;
+
           h1 {
             padding: 24px 0px 16px 24px;
             margin-bottom: 16px;
@@ -484,16 +652,28 @@ $lightorange-color: #ffead8;
         }
 
         .main__content__body__app-list--content {
-          @include respond(mobile) {
-            width: 343px;
-            height: 581px;
+          // @include respond(small-mobile) {
+          //   width: 343px;
+          //   height: 581px;
+          //   overflow-x: auto;
+          // }
+          @include respond(small-mobile) {
+            width: 90%;
             overflow-x: auto;
           }
+          @include respond(large-mobile) {
+            overflow-x: auto;
+          }
+
           .main__content__body__app-list--content--header {
             .grid-container {
               height: 494px;
               width: 1144px;
               border-radius: 12px;
+
+              @include respond(tablet) {
+                width: 100%;
+              }
 
               display: grid;
               grid-template-columns: repeat(6, 1fr);
