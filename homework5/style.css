@@ -72,8 +72,13 @@ button {
   color: #0053cf;
 }
 
-.modalContainer {
+
+.modal {
   width: 30vw;
+}
+
+.modalContainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

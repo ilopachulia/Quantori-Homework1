@@ -1,3 +1,5 @@
+// APPLICATION
+
 (function () {
   let state = undefined;
 
@@ -71,62 +73,31 @@
   function App() {
     const [items, setItems] = useState([]);
     const [filteredItems, setFilteredItems] = useState([]);
-    const [modalContainer, setModalContainer] = useState(null);
 
-    /// modal component functions
+    // modal component functions
     function openModal() {
       const body = document.querySelector("body");
       body.style.backgroundColor = "#D2D2D2";
 
-      const container = createElementWithClasses("div", ["modalContainer"]);
-      const header = createElementWithClasses("h1", ["heading"]);
-      setInnerHtml(header, "Add New Task");
-      const input = createInputWithClasses("text", "Task Title", [
-        "modalInput",
-      ]);
-
-      const buttonContainer = createElementWithClasses("div", [
-        "buttonContainer",
-      ]);
-
-      const cancel = Button({ text: "Cancel", onClick: cancelModal });
-      cancel.setAttribute("id", "cancel-btn");
-
-      const add = Button({ text: "Add Task", onClick: addTask });
-
-      buttonContainer.append(cancel, add);
-      container.append(header, input, buttonContainer);
-
-      setModalContainer(container);
-
-      function addTask() {
-        const body = document.querySelector("body");
-        body.style.backgroundColor = "#fff";
-
-        const inputField = document.querySelector(".modalInput");
-        const inputValue = inputField.value;
-        setItems([...items, inputValue]);
-        inputField.value = "";
-      }
-
-      function cancelModal() {
-        const body = document.querySelector("body");
-        body.style.backgroundColor = "#fff";
-
-        setModalContainer(null);
-      }
+      modal.style.display = "block";
     }
 
-    // // implementing search function part
-    // function handleSearch(event) {
-    //   // Update search term state with user input
-    //   console.log(event.target.value);
-    //   const filteredItemsArr = items.filter((item) =>
-    //     item.toLowerCase().includes(event.target.value.toLowerCase())
-    //   );
-    //   console.log(filteredItemsArr); // log the filtered items array
-    //   setFilteredItems(filteredItemsArr);
-    // }
+    function cancelModal() {
+      const body = document.querySelector("body");
+      body.style.backgroundColor = "#fff";
+      modal.style.display = "none";
+    }
+
+    function addTask() {
+      const body = document.querySelector("body");
+      body.style.backgroundColor = "#fff";
+
+      const inputField = document.querySelector(".modalInput");
+      const inputValue = inputField.value;
+      setItems([...items, inputValue]);
+      inputField.value = "";
+    }
+
     let searchTimeoutId;
 
     function handleSearch(event) {
@@ -143,6 +114,33 @@
     }
     // main content functions
     const mainContainer = createElementWithClasses("main", ["main-container"]);
+
+    // modal as an additional wrapper is needed because, property display: block, which makes impossible to use display flex; I used display block for outsider wrapper, and display flex, for inside wrapper;
+    const modal = createElementWithClasses("div", ["modal"]);
+
+    const modalContainer = createElementWithClasses("div", ["modalContainer"]);
+
+    modal.append(modalContainer);
+
+    // modal by default
+    modal.style.display = "none";
+
+    const header = createElementWithClasses("h1", ["heading"]);
+    setInnerHtml(header, "Add New Task");
+    const input = createInputWithClasses("text", "Task Title", ["modalInput"]);
+
+    const buttonContainer = createElementWithClasses("div", [
+      "buttonContainer",
+    ]);
+
+    const cancel = Button({ text: "Cancel", onClick: cancelModal });
+    cancel.setAttribute("id", "cancel-btn");
+
+    const add = Button({ text: "Add Task", onClick: addTask });
+
+    buttonContainer.append(cancel, add);
+    modalContainer.append(header, input, buttonContainer);
+
     const searchFieldWrapper = createElementWithClasses("div", [
       "searchFieldWrapper",
     ]);
@@ -158,10 +156,10 @@
     const button = Button({ text: "+ New Task", onClick: openModal });
     // const list = List({ items });
     //creating list using filteredItems
-    const list = List({ items });
+    const list = List({ items: filteredItems });
 
     searchFieldWrapper.append(searchField, button);
-    mainContainer.append(heading, searchFieldWrapper, list, modalContainer);
+    mainContainer.append(heading, searchFieldWrapper, list, modal);
     return mainContainer;
   }
 
