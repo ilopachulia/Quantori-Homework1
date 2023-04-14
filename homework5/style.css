@@ -44,7 +44,6 @@ main {
   width: 80%;
   margin-right: 72px;
   padding: 16px 21px;
-  color: #d2d2d2;
   background-color: #f5f5f5;
   border: 1px solid #d2d2d2;
   border-radius: 12px;
@@ -72,9 +71,13 @@ button {
   color: #0053cf;
 }
 
-
 .modal {
   width: 30vw;
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modalContainer {
@@ -85,6 +88,50 @@ button {
   justify-content: center;
   background-color: #fff;
   border-radius: 12px;
+}
+.checkboxAndDateContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.date {
+  border: 2px solid #3c86f4;
+  border-radius: 12px;
+  text-align: center;
+  padding: 2px;
+}
+
+.checkboxContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: center;
+}
+
+.checkboxContainer label {
+  border-radius: 6px;
+  padding: 1px 4px;
+}
+.checkboxContainer input {
+  padding: 5px;
+  display: none;
+}
+.health {
+  background-color: #3c86f4;
+  color: #0053cf;
+}
+.work {
+  background-color: #e8d7ff;
+  color: #9747ff;
+}
+.home {
+  background-color: #e2f6e2;
+  color: #639462;
+}
+.other {
+  background-color: #ffecc7;
+  color: #ea8c00;
 }
 
 .buttonContainer {
@@ -97,8 +144,71 @@ button {
 
 .modalInput {
   margin-right: 0px;
+  margin-bottom: 30px;
 }
 
 #cancel-btn {
   background: none;
+}
+
+/* List Item Styles */
+
+.listContainer {
+  width: 70%;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.taskCheckContainer input[type="checkbox"] {
+  margin-right: 30px;
+}
+
+.taskCheckContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.taskName {
+  font-size: 20px;
+  line-height: 25px;
+  color: #1d1d1d;
+}
+
+.checkedCategory {
+  margin-right: 10px;
+  border-radius: 6px;
+}
+.dateElement {
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+
+  color: #838383;
+}
+.taskDetails {
+  display: flex;
+  justify-content: space-between;
+}
+
+.completed {
+  color: grey !important;
+}
+.completedCategory {
+  background-color: #f5f5f5;
+  color: #838383;
+}
+
+.checkMark:checked {
+  accent-color: #d3d3d3;
 }
