@@ -433,8 +433,52 @@
     const searchFieldWrapper = createElementWithClasses("div", [
       "searchFieldWrapper",
     ]);
+    const headingAndWeatherContainer = createElementWithClasses("div", [
+      "headingAndWeatherContainer",
+    ]);
     const heading = createElementWithClasses("h1", ["heading"]);
     setInnerHtml(heading, "To Do List");
+
+    const weatherContainer = createElementWithClasses("div", [
+      "weatherContainer",
+    ]);
+
+    async function getWeatherData() {
+      try {
+        const response = await fetch(
+          "http://api.weatherapi.com/v1/current.json?key=355f5086f874430c9e1130753231504&q=Tbilisi&aqi=yes"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok.");
+        }
+        const data = await response.json();
+        const temperature = data.current.temp_c;
+        const iconUrl = data.current.condition.icon;
+        const location = data.location.name;
+
+        return { temperature, iconUrl, location }; // Return the variables as an object
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    getWeatherData().then(({ temperature, iconUrl, location }) => {
+      const icon = document.createElement("img");
+      icon.src = iconUrl;
+      const temperatureContainer = createElementWithClasses("div", [
+        "temperatureContainer",
+      ]);
+      temperatureContainer.append(temperature);
+      const locationContainer = createElementWithClasses("div", [
+        "locationContainer",
+      ]);
+      locationContainer.append(location);
+
+      weatherContainer.append(icon, temperatureContainer, locationContainer);
+    });
+
+    headingAndWeatherContainer.append(heading, weatherContainer);
+
     const searchField = createInputWithClasses("search", "Search Task", [
       "inputField",
     ]);
@@ -447,7 +491,13 @@
     const completed = CompletedList(completedTasks);
 
     searchFieldWrapper.append(searchField, button);
-    mainContainer.append(heading, searchFieldWrapper, list, completed, modal);
+    mainContainer.append(
+      headingAndWeatherContainer,
+      searchFieldWrapper,
+      list,
+      completed,
+      modal
+    );
     return mainContainer;
   }
 

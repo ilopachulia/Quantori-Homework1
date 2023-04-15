@@ -18,19 +18,25 @@ main {
   flex-direction: column;
   width: 50vw;
 }
-
-.heading {
-  display: flex;
-  justify-content: flex-start;
-
+.headingAndWeatherContainer {
   display: flex;
   align-items: center;
-
+  justify-content: space-between;
+  width: 100%;
   margin-top: 24px;
-  color: #1d1d1d;
-
   margin-bottom: 44px;
 }
+.heading {
+  color: #1d1d1d;
+}
+
+.weatherContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+}
+
 .searchFieldWrapper {
   display: flex;
   width: 100%;
