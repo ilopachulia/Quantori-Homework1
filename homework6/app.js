@@ -452,7 +452,7 @@
           throw new Error("Network response was not ok.");
         }
         const data = await response.json();
-        const temperature = data.current.temp_c;
+        const temperature = data.current.temp_c + "°";
         const iconUrl = data.current.condition.icon;
         const location = data.location.name;
 

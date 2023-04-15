@@ -36,7 +36,16 @@ main {
   align-items: center;
   width: 20%;
 }
+.temperatureContainer {
+  font-weight: bold;
+}
 
+.locationContainer {
+  color: #838383;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+}
 .searchFieldWrapper {
   display: flex;
   width: 100%;
