@@ -88,9 +88,6 @@
     return checkbox;
   }
 
-  // state was defined here because  we updating it from list function
-  let completedTasks = [];
-
   function List({ items }) {
     const listContainer = createElementWithClasses("div", ["listContainer"]);
 
@@ -100,8 +97,8 @@
       setInnerHtml(heading, "All Tasks");
       listContainer.appendChild(heading);
     }
-
-    for (let [index, item] of items.entries()) {
+    for (let item of items) {
+      const id = item.id;
       const listItem = createElementWithClasses("div", ["listItem"]);
 
       // Create container for checkmark and task
@@ -112,13 +109,35 @@
       taskCheckContainer.appendChild(checkMark);
 
       // updating completed list based on checkmarks
+
       checkMark.addEventListener("click", (event) => {
-        completedTasks.push(item);
-        const itemIndex = items.indexOf(item);
-        if (itemIndex !== -1) {
-          items.splice(itemIndex, 1);
-        }
+        // Update the data on the server
+        fetch(`http://localhost:3000/tasks/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(item),
+        })
+          .then((response) => response.json())
+          .then((updatedItem) => {
+            console.log(`Item with id ${id} updated:`, updatedItem);
+          })
+          .catch((error) => console.error(error));
+
         listContainer.removeChild(listItem);
+
+        // Send data to the JSON Server
+        fetch("http://localhost:3000/completedTasks", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(item),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
       });
 
       // Create container for task details
@@ -199,10 +218,18 @@
       listItem.appendChild(deleteContainer);
       // Add click event listener to delete button
       deleteButton.addEventListener("click", () => {
-        const itemIndex = items.indexOf(item);
-        if (itemIndex !== -1) {
-          items.splice(itemIndex, 1);
-        }
+        fetch(`http://localhost:3000/tasks/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(item),
+        })
+          .then((response) => response.json())
+          .then((updatedItem) => {
+            console.log(`Item with id ${item.id} updated:`, updatedItem);
+          })
+          .catch((error) => console.error(error));
         listContainer.removeChild(listItem);
       });
       listContainer.appendChild(listItem);
@@ -211,7 +238,7 @@
     return listContainer;
   }
 
-  function CompletedList(items) {
+  function CompletedList({ items }) {
     const listContainer = createElementWithClasses("div", ["listContainer"]);
 
     if (items.length > 0) {
@@ -306,6 +333,7 @@
   }
 
   // creates elements text
+
   function setInnerHtml(element, html) {
     element.innerHTML = html;
   }
@@ -358,10 +386,37 @@
         date: selectedDate,
       };
 
-      setItems([...items, newItem]);
+      // Send data to the JSON Server
+      fetch("http://localhost:3000/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newItem),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
 
       inputField.value = "";
     }
+
+    fetch("http://localhost:3000/tasks")
+      .then((response) => response.json())
+      .then((fetchData) => {
+        const data = fetchData;
+        const list = List({ items: data });
+        mainContainer.append(list);
+      })
+      .catch((error) => console.error(error));
+    fetch("http://localhost:3000/completedTasks")
+      .then((response) => response.json())
+      .then((fetchData) => {
+        const completedTasks = fetchData;
+        const list = CompletedList({ items: completedTasks });
+        mainContainer.append(list);
+      })
+      .catch((error) => console.error(error));
 
     let searchTimeoutId;
 
@@ -371,8 +426,8 @@
 
       // Set a new timeout to call handleSearch after a delay
       searchTimeoutId = setTimeout(() => {
-        const filteredItemsArr = items.filter((item) =>
-          item.task.toLowerCase().includes(event.target.value.toLowerCase())
+        const filteredItemsArr = data.filter((item) =>
+          data.task.toLowerCase().includes(event.target.value.toLowerCase())
         );
         setFilteredItems(filteredItemsArr);
       }, 500);
@@ -487,17 +542,10 @@
     searchField.addEventListener("input", handleSearch);
 
     const button = Button({ text: "+ New Task", onClick: openModal });
-    const list = List({ items: filteredItems });
-    const completed = CompletedList(completedTasks);
+    // const list = List({ data: filteredItems });
 
     searchFieldWrapper.append(searchField, button);
-    mainContainer.append(
-      headingAndWeatherContainer,
-      searchFieldWrapper,
-      list,
-      completed,
-      modal
-    );
+    mainContainer.append(headingAndWeatherContainer, searchFieldWrapper, modal);
     return mainContainer;
   }
 
@@ -514,3 +562,6 @@
   // initial render
   renderApp();
 })();
+
+// !! search should be implemented.
+// !! edit functionality should be added
