@@ -21,6 +21,18 @@
     return [state, setValue];
   }
 
+  function useEffect(callback, dependencies) {
+    const hasNoDeps = !dependencies;
+    const [deps, setDeps] = useState(dependencies);
+
+    if (hasNoDeps || deps) {
+      const cleanup = callback();
+      if (deps) {
+        setDeps(undefined);
+      }
+      return cleanup;
+    }
+  }
   //
   //     Button component
   //     @param text {string}
@@ -342,8 +354,31 @@
   //    @returns {HTMLDivElement} - The app container
 
   function App() {
-    const [items, setItems] = useState([]);
-    const [filteredItems, setFilteredItems] = useState([]);
+    const [tasks, setTasks] = useState([]);
+    fetch("http://localhost:3000/tasks")
+      .then((response) => response.json())
+      .then((data) => {
+        const list = List({ items: data });
+        mainContainer.append(list);
+      })
+      .catch((error) => console.error(error));
+
+    // useEffect(() => {
+    //   fetch('http://localhost:3000/tasks')
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       setTasks(data);
+    //     })
+    //     .catch((error) => console.error(error));
+    // }, []);
+
+    function handleSearch(event) {
+      const searchQuery = event.target.value.toLowerCase();
+      const filteredData = tasks.filter((item) =>
+        item.task.toLowerCase().includes(searchQuery)
+      );
+      setTasks(filteredData);
+    }
 
     // modal component functions
     function openModal() {
@@ -401,14 +436,6 @@
       inputField.value = "";
     }
 
-    fetch("http://localhost:3000/tasks")
-      .then((response) => response.json())
-      .then((fetchData) => {
-        const data = fetchData;
-        const list = List({ items: data });
-        mainContainer.append(list);
-      })
-      .catch((error) => console.error(error));
     fetch("http://localhost:3000/completedTasks")
       .then((response) => response.json())
       .then((fetchData) => {
@@ -418,23 +445,10 @@
       })
       .catch((error) => console.error(error));
 
-    let searchTimeoutId;
-
-    function handleSearch(event) {
-      // Clear any previously set timeout
-      clearTimeout(searchTimeoutId);
-
-      // Set a new timeout to call handleSearch after a delay
-      searchTimeoutId = setTimeout(() => {
-        const filteredItemsArr = data.filter((item) =>
-          data.task.toLowerCase().includes(event.target.value.toLowerCase())
-        );
-        setFilteredItems(filteredItemsArr);
-      }, 500);
-    }
     // main content functions
     const mainContainer = createElementWithClasses("main", ["main-container"]);
-
+    const list = List({ items: tasks });
+    mainContainer.append(list);
     // modal as an additional wrapper is needed because, property display: block, which makes impossible to use display flex; I used display block for outsider wrapper, and display flex, for inside wrapper;
     const modal = createElementWithClasses("div", ["modal"]);
 
@@ -542,7 +556,6 @@
     searchField.addEventListener("input", handleSearch);
 
     const button = Button({ text: "+ New Task", onClick: openModal });
-    // const list = List({ data: filteredItems });
 
     searchFieldWrapper.append(searchField, button);
     mainContainer.append(headingAndWeatherContainer, searchFieldWrapper, modal);
@@ -564,4 +577,3 @@
 })();
 
 // !! search should be implemented.
-// !! edit functionality should be added
