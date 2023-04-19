@@ -1,11 +1,9 @@
 {
   "tasks": [
     {
-      "task": "tas",
-      "categories": [
-        "home"
-      ],
-      "date": "2023-04-03",
+      "task": "1",
+      "categories": "work",
+      "date": "2023-04-24",
       "id": 1
     }
   ],

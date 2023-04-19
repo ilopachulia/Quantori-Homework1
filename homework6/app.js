@@ -392,20 +392,17 @@
       const checkboxAndDateContainer = document.querySelector(
         ".checkboxAndDateContainer"
       );
-      const checkboxes = checkboxAndDateContainer.querySelectorAll(
+      const checkbox = checkboxAndDateContainer.querySelector(
         'input[type="checkbox"]:checked'
       );
-      const selectedCheckboxes = [];
-      for (const checkbox of checkboxes) {
-        selectedCheckboxes.push(checkbox.value);
-      }
+      const selectedCheckbox = checkbox ? checkbox.value : null; // Now user send not an array, but string. only one option
 
       const dateInput = checkboxAndDateContainer.querySelector(".date");
       const selectedDate = dateInput.value;
 
       const newItem = {
         task: inputValue,
-        categories: selectedCheckboxes,
+        categories: selectedCheckbox,
         date: selectedDate,
       };
 
