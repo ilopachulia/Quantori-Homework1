@@ -1,16 +1,10 @@
 {
   "tasks": [
     {
-      "task": "tas",
-      "categories": "work",
-      "date": "2023-03-27",
+      "task": "a1",
+      "categories": "home",
+      "date": "2023-03-28",
       "id": 1
-    },
-    {
-      "task": "tas",
-      "categories": "other",
-      "date": "2023-04-03",
-      "id": 2
     }
   ],
   "completedTasks": [

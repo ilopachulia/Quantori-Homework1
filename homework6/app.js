@@ -373,9 +373,6 @@
 
     // modal component functions
     function openModal() {
-      const body = document.querySelector("body");
-      body.style.backgroundColor = "#D2D2D2";
-
       modal.style.display = "block";
 
       const addButton = document.querySelector(".addButton");
@@ -518,9 +515,9 @@
     const mainContainer = createElementWithClasses("main", ["main-container"]);
 
     // modal as an additional wrapper is needed because, property display: block, which makes impossible to use display flex; I used display block for outsider wrapper, and display flex, for inside wrapper;
-    const modal = createElementWithClasses("div", ["modal"]);
+    const modalContainer = createElementWithClasses("div", ["modal"]);
 
-    const modalContainer = createElementWithClasses("div", ["modalContainer"]);
+    const modal = createElementWithClasses("div", ["modalContainer"]);
 
     modal.append(modalContainer);
 
@@ -538,13 +535,19 @@
     const checkboxContainer = createElementWithClasses("div", [
       "checkboxContainer",
     ]);
+    const tags = {
+      health: ["health"],
+      work: ["work"],
+      home: ["home"],
+      other: ["other"],
+    };
 
-    const health = createCheckboxWithLabel("health", ["health"]);
-    const work = createCheckboxWithLabel("work", ["work"]);
-    const home = createCheckboxWithLabel("home", ["home"]);
-    const other = createCheckboxWithLabel("other", ["other"]);
-
-    checkboxContainer.append(health, work, home, other);
+    for (const key in tags) {
+      if (Object.hasOwnProperty.call(tags, key)) {
+        const checkbox = createCheckboxWithLabel(key, tags[key]);
+        checkboxContainer.appendChild(checkbox);
+      }
+    }
 
     // Create the date input element with classes
     const dateInput = createDateInputWithClasses("Select a date", ["date"]);
