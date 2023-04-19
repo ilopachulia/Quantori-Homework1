@@ -354,23 +354,26 @@
   //    @returns {HTMLDivElement} - The app container
 
   function App() {
-    const [tasks, setTasks] = useState([]);
+    let tasks = [];
 
     fetch("http://localhost:3000/tasks")
       .then((response) => response.json())
       .then((data) => {
-        const list = List({ items: data });
+        tasks = tasks.concat(data);
+        const list = List({ items: tasks });
         mainContainer.append(list);
       })
       .catch((error) => console.error(error));
-
 
     function handleSearch(event) {
       const searchQuery = event.target.value.toLowerCase();
       const filteredData = tasks.filter((item) =>
         item.task.toLowerCase().includes(searchQuery)
       );
-      setTasks(filteredData);
+      console.log("filter", filteredData);
+      const list = List({ items: filteredData });
+      const listContainer = document.getElementsByClassName("listContainer")[0];
+      mainContainer.replaceChild(list, listContainer);
     }
 
     // modal component functions
@@ -440,8 +443,7 @@
 
     // main content functions
     const mainContainer = createElementWithClasses("main", ["main-container"]);
-    const list = List({ items: tasks });
-    mainContainer.append(list);
+
     // modal as an additional wrapper is needed because, property display: block, which makes impossible to use display flex; I used display block for outsider wrapper, and display flex, for inside wrapper;
     const modal = createElementWithClasses("div", ["modal"]);
 
