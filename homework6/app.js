@@ -364,14 +364,6 @@
       })
       .catch((error) => console.error(error));
 
-    // useEffect(() => {
-    //   fetch('http://localhost:3000/tasks')
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       setTasks(data);
-    //     })
-    //     .catch((error) => console.error(error));
-    // }, []);
 
     function handleSearch(event) {
       const searchQuery = event.target.value.toLowerCase();
