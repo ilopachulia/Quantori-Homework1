@@ -86,6 +86,11 @@ button {
   color: #0053cf;
 }
 
+.addButton:disabled {
+  background-color: #cccccc; /* grey */
+  cursor: not-allowed;
+}
+
 .modal {
   width: 30vw;
   position: fixed;

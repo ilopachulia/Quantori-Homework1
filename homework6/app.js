@@ -39,10 +39,13 @@
   //    @param onClick {function}
   //   @returns {HTMLButtonElement} - Button element
   //
-  function Button({ text, onClick }) {
+
+  function Button({ text, onClick, disabled, className }) {
     const button = document.createElement("button");
     button.innerHTML = text;
     button.onclick = onClick;
+    button.disabled = disabled;
+    button.className = className;
     return button;
   }
 
@@ -374,6 +377,36 @@
       body.style.backgroundColor = "#D2D2D2";
 
       modal.style.display = "block";
+
+      const addButton = document.querySelector(".addButton");
+      addButton.disabled = true;
+
+      const inputField = document.querySelector(".modalInput");
+      const checkboxAndDateContainer = document.querySelector(
+        ".checkboxAndDateContainer"
+      );
+      const checkbox = checkboxAndDateContainer.querySelector(
+        'input[type="checkbox"]'
+      );
+      const dateInput = checkboxAndDateContainer.querySelector(".date");
+
+      inputField.addEventListener("input", checkInputs);
+      checkbox.addEventListener("change", checkInputs);
+      dateInput.addEventListener("change", checkInputs);
+
+      function checkInputs() {
+        if (
+          inputField.value.trim() === "" ||
+          checkboxAndDateContainer.querySelector(
+            'input[type="checkbox"]:checked'
+          ) === null ||
+          dateInput.value === ""
+        ) {
+          addButton.disabled = true;
+        } else {
+          addButton.disabled = false;
+        }
+      }
     }
 
     function cancelModal() {
@@ -382,10 +415,61 @@
       modal.style.display = "none";
     }
 
-    function addTask() {
-      const body = document.querySelector("body");
-      body.style.backgroundColor = "#fff";
+    // function addTask() {
+    //   const inputField = document.querySelector(".modalInput");
+    //   const inputValue = inputField.value;
 
+    //   const checkboxAndDateContainer = document.querySelector(
+    //     ".checkboxAndDateContainer"
+    //   );
+    //   const checkbox = checkboxAndDateContainer.querySelector(
+    //     'input[type="checkbox"]:checked'
+    //   );
+    //   const selectedCheckbox = checkbox ? checkbox.value : null; // Now user send not an array, but string. only one option
+
+    //   const dateInput = checkboxAndDateContainer.querySelector(".date");
+    //   const selectedDate = dateInput.value;
+
+    //   const newItem = {
+    //     task: inputValue,
+    //     categories: selectedCheckbox,
+    //     date: selectedDate,
+    //   };
+
+    //   // Send data to the JSON Server
+    //   fetch("http://localhost:3000/tasks", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(newItem),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => console.log(data))
+    //     .catch((error) => console.error(error));
+
+    //   inputField.addEventListener("input", checkInputs);
+    //   checkbox.addEventListener("change", checkInputs);
+    //   dateInput.addEventListener("change", checkInputs);
+
+    //   function checkInputs() {
+    //     const addButton = document.getElementById("addButton");
+    //     if (
+    //       inputField.value.trim() === "" ||
+    //       checkboxAndDateContainer.querySelector(
+    //         'input[type="checkbox"]:checked'
+    //       ) === null ||
+    //       dateInput.value === ""
+    //     ) {
+    //       addButton.disabled = true;
+    //     } else {
+    //       addButton.disabled = false;
+    //       inputField.value = "";
+    //     }
+    //   }
+    // }
+
+    function addTask() {
       const inputField = document.querySelector(".modalInput");
       const inputValue = inputField.value;
 
@@ -395,7 +479,7 @@
       const checkbox = checkboxAndDateContainer.querySelector(
         'input[type="checkbox"]:checked'
       );
-      const selectedCheckbox = checkbox ? checkbox.value : null; // Now user send not an array, but string. only one option
+      const selectedCheckbox = checkbox ? checkbox.value : null;
 
       const dateInput = checkboxAndDateContainer.querySelector(".date");
       const selectedDate = dateInput.value;
@@ -472,7 +556,12 @@
     const cancel = Button({ text: "Cancel", onClick: cancelModal });
     cancel.setAttribute("id", "cancel-btn");
 
-    const add = Button({ text: "Add Task", onClick: addTask });
+    const add = Button({
+      text: "Add Task",
+      onClick: addTask,
+      disabled: false,
+      className: "addButton",
+    });
 
     buttonContainer.append(cancel, add);
     checkboxAndDateContainer.append(checkboxContainer, dateInput);
