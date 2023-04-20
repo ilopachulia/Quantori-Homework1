@@ -1,11 +1,46 @@
 {
   "tasks": [
     {
-      "task": "checkit?",
+      "task": "tas1",
+      "categories": "work",
+      "date": "2023-04-16",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "task": "davaleab1",
+      "categories": "work",
+      "date": "2023-04-11",
+      "completed": true,
+      "id": 2
+    },
+    {
+      "task": "gav",
+      "categories": "other",
+      "date": "2023-04-03",
+      "completed": true,
+      "id": 3
+    },
+    {
+      "task": "qASD",
       "categories": "home",
       "date": "2023-03-28",
       "completed": true,
-      "id": 1
+      "id": 4
+    },
+    {
+      "task": "zx",
+      "categories": "other",
+      "date": "2023-04-03",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "task": "sdf",
+      "categories": "other",
+      "date": "2023-03-28",
+      "completed": false,
+      "id": 6
     }
   ]
 }
