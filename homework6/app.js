@@ -2,7 +2,6 @@
 
 (function () {
   let state = undefined;
-  const mainContainer = createElementWithClasses("main", ["main-container"]);
 
   //
   //    Global application state
@@ -139,7 +138,6 @@
         })
           .then((response) => response.json())
           .then((updatedTask) => {
-            console.log(updatedTask);
             mainContainer.removeChild(listItem);
           })
           .catch((error) => console.error(error));
@@ -279,6 +277,25 @@
         "completedCategory",
       ]);
 
+      checkMark.addEventListener("click", (event) => {
+        // Update task completion status on the JSON Server
+        fetch(`http://localhost:3000/tasks/${item.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...item,
+            completed: false,
+          }),
+        })
+          .then((response) => response.json())
+          .then((updatedTask) => {
+            mainContainer.removeChild(listItem);
+          })
+          .catch((error) => console.error(error));
+      });
+
       switch (item.categories) {
         case "health":
           checkedCategory.classList.add(item.categories);
@@ -340,6 +357,7 @@
 
   function App() {
     let tasks = [];
+
     // main content functions
 
     fetch("http://localhost:3000/tasks")
@@ -448,6 +466,8 @@
         mainContainer.append(list);
       })
       .catch((error) => console.error(error));
+
+    const mainContainer = createElementWithClasses("main", ["main-container"]);
 
     // modal as an additional wrapper is needed because, property display: block, which makes impossible to use display flex; I used display block for outsider wrapper, and display flex, for inside wrapper;
     const modalContainer = createElementWithClasses("div", ["modal"]);
