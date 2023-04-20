@@ -113,8 +113,8 @@
       listContainer.appendChild(heading);
     }
     for (let item of items) {
-      const id = item.id;
       const listItem = createElementWithClasses("div", ["listItem"]);
+      const id = item.id;
 
       // Create container for checkmark and task
       const taskCheckContainer = createElementWithClasses("div", [
@@ -124,34 +124,23 @@
       taskCheckContainer.appendChild(checkMark);
 
       // updating completed list based on checkmarks
-
       checkMark.addEventListener("click", (event) => {
-        // Update the data on the server
-        fetch(`http://localhost:3000/tasks/${id}`, {
-          method: "DELETE",
+        // Update task completion status on the JSON Server
+        fetch(`http://localhost:3000/tasks/${item.id}`, {
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(item),
+          body: JSON.stringify({
+            ...item,
+            completed: true,
+          }),
         })
           .then((response) => response.json())
-          .then((updatedItem) => {
-            console.log(`Item with id ${id} updated:`, updatedItem);
+          .then((updatedTask) => {
+            console.log(updatedTask);
+            mainContainer.removeChild(listItem);
           })
-          .catch((error) => console.error(error));
-
-        listContainer.removeChild(listItem);
-
-        // Send data to the JSON Server
-        fetch("http://localhost:3000/completedTasks", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(item),
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
           .catch((error) => console.error(error));
       });
 
@@ -412,60 +401,6 @@
       modal.style.display = "none";
     }
 
-    // function addTask() {
-    //   const inputField = document.querySelector(".modalInput");
-    //   const inputValue = inputField.value;
-
-    //   const checkboxAndDateContainer = document.querySelector(
-    //     ".checkboxAndDateContainer"
-    //   );
-    //   const checkbox = checkboxAndDateContainer.querySelector(
-    //     'input[type="checkbox"]:checked'
-    //   );
-    //   const selectedCheckbox = checkbox ? checkbox.value : null; // Now user send not an array, but string. only one option
-
-    //   const dateInput = checkboxAndDateContainer.querySelector(".date");
-    //   const selectedDate = dateInput.value;
-
-    //   const newItem = {
-    //     task: inputValue,
-    //     categories: selectedCheckbox,
-    //     date: selectedDate,
-    //   };
-
-    //   // Send data to the JSON Server
-    //   fetch("http://localhost:3000/tasks", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(newItem),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => console.log(data))
-    //     .catch((error) => console.error(error));
-
-    //   inputField.addEventListener("input", checkInputs);
-    //   checkbox.addEventListener("change", checkInputs);
-    //   dateInput.addEventListener("change", checkInputs);
-
-    //   function checkInputs() {
-    //     const addButton = document.getElementById("addButton");
-    //     if (
-    //       inputField.value.trim() === "" ||
-    //       checkboxAndDateContainer.querySelector(
-    //         'input[type="checkbox"]:checked'
-    //       ) === null ||
-    //       dateInput.value === ""
-    //     ) {
-    //       addButton.disabled = true;
-    //     } else {
-    //       addButton.disabled = false;
-    //       inputField.value = "";
-    //     }
-    //   }
-    // }
-
     function addTask() {
       const inputField = document.querySelector(".modalInput");
       const inputValue = inputField.value;
@@ -485,6 +420,7 @@
         task: inputValue,
         categories: selectedCheckbox,
         date: selectedDate,
+        completed: false,
       };
 
       // Send data to the JSON Server
@@ -502,10 +438,10 @@
       inputField.value = "";
     }
 
-    fetch("http://localhost:3000/completedTasks")
+    fetch("http://localhost:3000/tasks")
       .then((response) => response.json())
       .then((fetchData) => {
-        const completedTasks = fetchData;
+        const completedTasks = fetchData.filter((task) => task.completed);
         const list = CompletedList({ items: completedTasks });
         mainContainer.append(list);
       })
