@@ -1,12 +1,17 @@
-// create element functions
-export function createElementWithClasses(elementType, classes) {
+export function createElementWithClasses(
+  elementType: string,
+  classes: string[]
+): HTMLElement {
   const element = document.createElement(elementType);
   classes.forEach((className) => element.classList.add(className));
   return element;
 }
 
-// create element function for only INPUTS
-export function createInputWithClasses(type, placeholder, classes) {
+export function createInputWithClasses(
+  type: string,
+  placeholder: string,
+  classes: string[]
+): HTMLInputElement {
   const input = document.createElement("input");
   input.setAttribute("placeholder", placeholder);
   input.setAttribute("type", type);
@@ -14,8 +19,10 @@ export function createInputWithClasses(type, placeholder, classes) {
   return input;
 }
 
-// create checkbox functions
-export function createCheckboxWithLabel(value, classes) {
+export function createCheckboxWithLabel(
+  value: string,
+  classes: string[]
+): HTMLLabelElement {
   const label = document.createElement("label");
   const input = document.createElement("input");
   const id = value;
@@ -36,7 +43,10 @@ export function createCheckboxWithLabel(value, classes) {
   return label;
 }
 
-export function createDateInputWithClasses(placeholder, classes) {
+export function createDateInputWithClasses(
+  placeholder: string,
+  classes: string[]
+): HTMLInputElement {
   const input = document.createElement("input");
   input.setAttribute("placeholder", placeholder);
   input.setAttribute("type", "date");
@@ -45,13 +55,15 @@ export function createDateInputWithClasses(placeholder, classes) {
   return input;
 }
 
-export function createCheckboxWithoutLabel(className) {
+export function createCheckboxWithoutLabel(
+  className: string
+): HTMLInputElement {
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.classList.add(className);
   return checkbox;
 }
 
-export function setInnerHtml(element, html) {
+export function setInnerHtml(element: HTMLElement, html: string): void {
   element.innerHTML = html;
 }

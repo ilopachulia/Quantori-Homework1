@@ -3,26 +3,27 @@ const path = require("path");
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",
+  entry: "./src/index.ts",
   output: {
     clean: true,
     filename: "bundle.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: "./src/index.html",
     }),
   ],
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".ts"],
     modules: [path.resolve(__dirname, "src"), "node_modules"],
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: "ts-loader",
         },
       },
       {

@@ -1,6 +1,6 @@
-import { List } from "../components/List.js";
-import { CompletedList } from "../components/CompletedList.js";
-import { Button } from "../components/Button.js";
+import { List } from "../components/List";
+import { CompletedList } from "../components/CompletedList";
+import { Button } from "../components/Button";
 
 import {
   createElementWithClasses,
@@ -8,27 +8,35 @@ import {
   createInputWithClasses,
   createCheckboxWithLabel,
   createDateInputWithClasses,
-} from "../createrFunctions.js";
+} from "../createrFunctions";
 
 // APPLICATION
 (function () {
   function App() {
-    let tasks = [];
+    interface Task {
+      id: number;
+      task: string;
+      completed: boolean;
+    }
+
+    let tasks: Task[] = [];
 
     // main content functions
 
     fetch("http://localhost:3000/tasks")
       .then((response) => response.json())
-      .then((data) => {
+      .then((data: Task[]) => {
         tasks = tasks.concat(data.filter((item) => !item.completed));
 
         const list = List({ items: tasks });
         mainContainer.append(list);
       })
-      .catch((error) => console.error(error));
+      .catch((error: Error) => console.error(error));
 
-    function handleSearch(event) {
-      const searchQuery = event.target.value.toLowerCase();
+    function handleSearch(event: Event): void {
+      const searchQuery = (
+        event.target as HTMLInputElement
+      ).value.toLowerCase();
       const filteredData = tasks.filter((item) =>
         item.task.toLowerCase().includes(searchQuery)
       );
@@ -38,26 +46,35 @@ import {
     }
 
     // modal component functions
-    function openModal() {
-      modal.style.display = "block";
+    function openModal(): void {
+      const modalContainer = document.querySelector(
+        ".modalContainer"
+      ) as HTMLElement;
+      modalContainer.style.display = "block";
 
-      const addButton = document.querySelector(".addButton");
+      const addButton = document.querySelector(
+        ".addButton"
+      ) as HTMLButtonElement;
       addButton.disabled = true;
 
-      const inputField = document.querySelector(".modalInput");
+      const inputField = document.querySelector(
+        ".modalInput"
+      ) as HTMLInputElement;
       const checkboxAndDateContainer = document.querySelector(
         ".checkboxAndDateContainer"
-      );
+      ) as HTMLElement;
       const checkbox = checkboxAndDateContainer.querySelector(
         'input[type="checkbox"]'
-      );
-      const dateInput = checkboxAndDateContainer.querySelector(".date");
+      ) as HTMLInputElement;
+      const dateInput = checkboxAndDateContainer.querySelector(
+        ".date"
+      ) as HTMLInputElement;
 
       inputField.addEventListener("input", checkInputs);
       checkbox.addEventListener("change", checkInputs);
       dateInput.addEventListener("change", checkInputs);
 
-      function checkInputs() {
+      function checkInputs(): void {
         if (
           inputField.value.trim() === "" ||
           checkboxAndDateContainer.querySelector(
@@ -72,25 +89,30 @@ import {
       }
     }
 
-    function cancelModal() {
-      const body = document.querySelector("body");
+    function cancelModal(): void {
+      const body = document.querySelector("body") as HTMLElement;
       body.style.backgroundColor = "#fff";
+      const modal = document.querySelector(".modal") as HTMLElement;
       modal.style.display = "none";
     }
 
-    function addTask() {
-      const inputField = document.querySelector(".modalInput");
+    function addTask(): void {
+      const inputField = document.querySelector(
+        ".modalInput"
+      ) as HTMLInputElement;
       const inputValue = inputField.value;
 
       const checkboxAndDateContainer = document.querySelector(
         ".checkboxAndDateContainer"
-      );
+      ) as HTMLElement;
       const checkbox = checkboxAndDateContainer.querySelector(
         'input[type="checkbox"]:checked'
-      );
+      ) as HTMLInputElement;
       const selectedCheckbox = checkbox ? checkbox.value : null;
 
-      const dateInput = checkboxAndDateContainer.querySelector(".date");
+      const dateInput = checkboxAndDateContainer.querySelector(
+        ".date"
+      ) as HTMLInputElement;
       const selectedDate = dateInput.value;
 
       const newItem = {
@@ -115,14 +137,22 @@ import {
       inputField.value = "";
     }
 
+    interface Task {
+      task: string;
+      categories: string;
+      date: string;
+      completed: boolean;
+      id: number;
+    }
+
     fetch("http://localhost:3000/tasks")
-      .then((response) => response.json())
-      .then((fetchData) => {
-        const completedTasks = fetchData.filter((task) => task.completed);
+      .then((response: Response) => response.json())
+      .then((fetchData: Task[]) => {
+        const completedTasks = fetchData.filter((task: Task) => task.completed);
         const list = CompletedList({ items: completedTasks });
         mainContainer.append(list);
       })
-      .catch((error) => console.error(error));
+      .catch((error: Error) => console.error(error));
 
     const mainContainer = createElementWithClasses("main", ["main-container"]);
 
@@ -154,11 +184,9 @@ import {
       other: ["other"],
     };
 
-    for (const key in tags) {
-      if (Object.hasOwnProperty.call(tags, key)) {
-        const checkbox = createCheckboxWithLabel(key, tags[key]);
-        checkboxContainer.appendChild(checkbox);
-      }
+    for (const key of Object.keys(tags) as Array<keyof typeof tags>) {
+      const checkbox = createCheckboxWithLabel(key, tags[key]);
+      checkboxContainer.appendChild(checkbox);
     }
 
     // Create the date input element with classes
@@ -200,6 +228,12 @@ import {
       "weatherContainer",
     ]);
 
+    interface WeatherData {
+      temperature: string;
+      iconUrl: string;
+      location: string;
+    }
+
     async function getWeatherData() {
       try {
         const response = await fetch(
@@ -219,30 +253,33 @@ import {
       }
     }
 
-    getWeatherData().then(({ temperature, iconUrl, location }) => {
-      const icon = document.createElement("img");
-      icon.src = iconUrl;
-      const temperatureContainer = createElementWithClasses("div", [
-        "temperatureContainer",
-      ]);
-      temperatureContainer.append(temperature);
-      const locationContainer = createElementWithClasses("div", [
-        "locationContainer",
-      ]);
-      locationContainer.append(location);
+    getWeatherData().then((data: WeatherData | undefined) => {
+      if (data) {
+        const { temperature, iconUrl, location } = data;
+        const icon = document.createElement("img");
+        icon.src = iconUrl;
+        const temperatureContainer = createElementWithClasses("div", [
+          "temperatureContainer",
+        ]);
+        temperatureContainer.append(temperature);
+        const locationContainer = createElementWithClasses("div", [
+          "locationContainer",
+        ]);
+        locationContainer.append(location);
 
-      weatherContainer.append(icon, temperatureContainer, locationContainer);
+        // Append the weather elements to the weather container
+        weatherContainer.append(icon, temperatureContainer, locationContainer);
+      }
     });
 
     headingAndWeatherContainer.append(heading, weatherContainer);
 
+    // adding eventlistener to search input
     const searchField = createInputWithClasses("search", "Search Task", [
       "inputField",
     ]);
 
-    // adding eventlistener to search input
     searchField.addEventListener("input", handleSearch);
-
     const button = Button({ text: "+ New Task", onClick: openModal });
 
     searchFieldWrapper.append(searchField, button);
@@ -256,6 +293,8 @@ import {
    */
   function renderApp() {
     const appContainer = document.getElementById("functional-example");
+    if (!appContainer) return;
+
     appContainer.innerHTML = "";
     appContainer.append(App());
   }

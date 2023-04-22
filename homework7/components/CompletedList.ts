@@ -1,32 +1,59 @@
 import {
   createElementWithClasses,
+  createCheckboxWithLabel,
   createCheckboxWithoutLabel,
   setInnerHtml,
-} from "../createrFunctions.js";
+} from "../createrFunctions";
 
-import "./List.css";
+interface Task {
+  id: number;
+  task: string;
+  completed: boolean;
+  categories: string;
+  date: string;
+}
 
-export function List({ items }) {
+export function CompletedList({ items }: { items: Task[] }) {
   const listContainer = createElementWithClasses("div", ["listContainer"]);
 
   if (items.length > 0) {
     // Create heading for the list
     const heading = createElementWithClasses("h1", ["listHeading"]);
-    setInnerHtml(heading, "All Tasks");
+    setInnerHtml(heading, "Completed Tasks");
     listContainer.appendChild(heading);
   }
+
   for (let item of items) {
     const listItem = createElementWithClasses("div", ["listItem"]);
-    const id = item.id;
 
     // Create container for checkmark and task
     const taskCheckContainer = createElementWithClasses("div", [
       "taskCheckContainer",
+      "completed",
     ]);
     const checkMark = createCheckboxWithoutLabel("checkMark");
+    checkMark.checked = true;
     taskCheckContainer.appendChild(checkMark);
 
-    // updating completed list based on checkmarks
+    // Create container for task details
+    const taskContainer = createElementWithClasses("div", [
+      "taskContainer",
+      "completed",
+    ]);
+    const taskName = createElementWithClasses("h1", ["taskName", "completed"]);
+    setInnerHtml(taskName, item.task);
+    taskContainer.appendChild(taskName);
+
+    const taskDetails = createElementWithClasses("div", [
+      "taskDetails",
+      "completed",
+    ]);
+
+    const checkedCategory = createElementWithClasses("div", [
+      "checkedCategory",
+      "completedCategory",
+    ]);
+
     checkMark.addEventListener("click", (event) => {
       // Update task completion status on the JSON Server
       fetch(`http://localhost:3000/tasks/${item.id}`, {
@@ -36,7 +63,7 @@ export function List({ items }) {
         },
         body: JSON.stringify({
           ...item,
-          completed: true,
+          completed: false,
         }),
       })
         .then((response) => response.json())
@@ -44,19 +71,6 @@ export function List({ items }) {
         .catch((error) => console.error(error));
     });
 
-    // Create container for task details
-    const taskContainer = createElementWithClasses("div", ["taskContainer"]);
-    const taskName = createElementWithClasses("h1", ["taskName"]);
-    setInnerHtml(taskName, item.task);
-    taskContainer.appendChild(taskName);
-
-    const taskDetails = createElementWithClasses("div", ["taskDetails"]);
-
-    const checkedCategory = createElementWithClasses("div", [
-      "checkedCategory",
-    ]);
-
-    // here I am styling task list components' categories, using previously defined classes, items.categories are the value names, same as the class names: home, work, other, health..
     switch (item.categories) {
       case "health":
         checkedCategory.classList.add(item.categories);
@@ -101,33 +115,6 @@ export function List({ items }) {
     taskCheckContainer.appendChild(taskContainer);
     listItem.appendChild(taskCheckContainer);
 
-    // Create container for delete button
-    const deleteContainer = createElementWithClasses("div", [
-      "deleteContainer",
-    ]);
-
-    const deleteButton = document.createElement("img");
-    deleteButton.src = "./Shape.svg"; // changed deleteButton from button element to img element
-
-    deleteContainer.appendChild(deleteButton);
-    listItem.appendChild(deleteContainer);
-
-    // Add click event listener to delete button
-    deleteButton.addEventListener("click", () => {
-      fetch(`http://localhost:3000/tasks/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(item),
-      })
-        .then((response) => response.json())
-        .then((updatedItem) => {
-          console.log(`Item with id ${item.id} updated:`, updatedItem);
-        })
-        .catch((error) => console.error(error));
-      listContainer.removeChild(listItem);
-    });
     listContainer.appendChild(listItem);
   }
 
