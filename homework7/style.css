@@ -69,27 +69,8 @@ main {
   outline: 1px solid #d2d2d2;
 }
 
-button {
-  height: 52px;
-  background-color: rgba(11, 135, 2, 0.4);
-  border-radius: 12px;
-  border: none;
-  padding: 16px 32px;
 
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
 
-  display: flex;
-  align-items: center;
-
-  color: #0053cf;
-}
-
-.addButton:disabled {
-  background-color: #959595; /* grey */
-  cursor: not-allowed;
-}
 
 .modalContainer {
   width: 30vw;
@@ -168,6 +149,3 @@ button {
   margin-bottom: 30px;
 }
 
-#cancel-btn {
-  background: none;
-}

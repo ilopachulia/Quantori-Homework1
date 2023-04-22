@@ -1,3 +1,5 @@
+import "./Button.css";
+
 export function Button({ text, onClick, disabled, className }) {
   const button = document.createElement("button");
   button.innerHTML = text;

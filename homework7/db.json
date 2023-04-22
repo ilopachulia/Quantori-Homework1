@@ -4,15 +4,50 @@
       "task": "tas1",
       "categories": "home",
       "date": "2023-03-28",
-      "completed": false,
+      "completed": true,
       "id": 1
     },
     {
       "task": "tas2",
       "categories": "work",
       "date": "2023-04-12",
-      "completed": false,
+      "completed": true,
       "id": 2
+    },
+    {
+      "task": "tasa1",
+      "categories": "work",
+      "date": "2023-04-12",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "task": "as",
+      "categories": "home",
+      "date": "2023-03-27",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "task": "sasdf",
+      "categories": "work",
+      "date": "2023-03-28",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "task": "AS",
+      "categories": "home",
+      "date": "2023-03-27",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "task": "hgfsd",
+      "categories": "work",
+      "date": "2023-04-10",
+      "completed": false,
+      "id": 7
     }
   ]
 }

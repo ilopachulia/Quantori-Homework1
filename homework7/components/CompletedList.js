@@ -59,8 +59,7 @@ export function CompletedList({ items }) {
         }),
       })
         .then((response) => response.json())
-        .then((updatedTask) => {
-        })
+        .then((updatedTask) => {})
         .catch((error) => console.error(error));
     });
 
