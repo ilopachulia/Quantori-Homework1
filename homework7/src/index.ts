@@ -261,6 +261,7 @@ import {
         const temperatureContainer = createElementWithClasses("div", [
           "temperatureContainer",
         ]);
+
         temperatureContainer.append(temperature);
         const locationContainer = createElementWithClasses("div", [
           "locationContainer",

@@ -6,20 +6,6 @@
       "date": "2023-04-03",
       "completed": true,
       "id": 1
-    },
-    {
-      "task": "task2",
-      "categories": "home",
-      "date": "2023-04-04",
-      "completed": false,
-      "id": 2
-    },
-    {
-      "task": "done",
-      "categories": "home",
-      "date": "2023-04-25",
-      "completed": false,
-      "id": 3
     }
   ]
 }
