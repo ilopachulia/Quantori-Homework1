@@ -2,17 +2,24 @@
   "tasks": [
     {
       "task": "task1",
-      "categories": "work",
-      "date": "2023-03-27",
-      "completed": false,
+      "categories": "health",
+      "date": "2023-04-03",
+      "completed": true,
       "id": 1
     },
     {
-      "task": "tasd2",
+      "task": "task2",
       "categories": "home",
-      "date": "2023-04-03",
+      "date": "2023-04-04",
       "completed": false,
       "id": 2
+    },
+    {
+      "task": "done",
+      "categories": "home",
+      "date": "2023-04-25",
+      "completed": false,
+      "id": 3
     }
   ]
 }
