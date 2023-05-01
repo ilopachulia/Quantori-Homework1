@@ -1,0 +1,9 @@
+.newTask {
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  background-color: rgba(60, 134, 244, 0.15);
+  color: #0053cf;
+  border-radius: 12px;
+  padding: 10px 20px;
+}

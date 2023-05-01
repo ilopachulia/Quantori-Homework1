@@ -2,5 +2,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  width: 50vw;
+}
+
+.searchAndNewTaskContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
