@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Task 1",
+      "category": "work",
+      "date": "2023-05-04",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "Task 2",
+      "category": "home",
+      "date": "2023-05-05",
+      "completed": true
+    },
+    {
+      "title": "tasg1",
+      "category": "Work",
+      "date": "2023-05-10",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "title": "tasg1",
+      "category": "Work",
+      "date": "2023-05-10",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "title": "grerre",
+      "category": "Home",
+      "date": "2023-05-03",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "title": "grerre",
+      "category": "Home",
+      "date": "2023-05-03",
+      "completed": false,
+      "id": 6
+    }
+  ]
+}

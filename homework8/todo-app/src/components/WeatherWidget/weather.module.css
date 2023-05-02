@@ -8,9 +8,12 @@
 .temperature {
   color: #000000;
   font-weight: 700;
-  margin-right: 80px;
+  margin-right: 60px;
 }
 
+.icon {
+  margin-right: 20px;
+}
 .location {
   color: #838383;
 }

@@ -1,9 +1,35 @@
 .newTask {
-  font-weight: 600;
+  font-weight: 800;
   font-size: 16px;
   border: none;
   background-color: rgba(60, 134, 244, 0.15);
   color: #0053cf;
   border-radius: 12px;
   padding: 10px 20px;
+}
+
+.cancel {
+  color: #0053cf;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.add {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #fff;
+
+  background-color: #3c86f4;
+  border-radius: 12px;
+  padding: 16px 32px;
+  border: none;
 }

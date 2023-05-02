@@ -7,12 +7,12 @@ const NewTask = () => {
 
   const handleButtonClick = () => {
     setShowModal(true);
-    console.log("click");
   };
 
   const handleModalClose = () => {
     setShowModal(false);
   };
+
   return (
     <div>
       <Button
