@@ -5,13 +5,7 @@ import {
   setInnerHtml,
 } from "../createrFunctions";
 
-interface Task {
-  id: number;
-  task: string;
-  completed: boolean;
-  categories: string;
-  date: string;
-}
+import { Task } from "../shared-interfaces/interfaces";
 
 export function CompletedList({ items }: { items: Task[] }) {
   const listContainer = createElementWithClasses("div", ["listContainer"]);

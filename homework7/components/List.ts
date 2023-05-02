@@ -6,13 +6,7 @@ import {
 
 import "./List.css";
 
-interface Task {
-  id: number;
-  task: string;
-  completed: boolean;
-  categories: string;
-  date: string;
-}
+import { Task } from "../shared-interfaces/interfaces";
 
 export function List({ items }: { items: Task[] }) {
   const listContainer = createElementWithClasses("div", ["listContainer"]);
@@ -89,7 +83,8 @@ export function List({ items }: { items: Task[] }) {
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
 
-    let dateString;
+    let dateString: string;
+
     if (date.toDateString() === today.toDateString()) {
       dateString = "Today";
     } else if (date.toDateString() === yesterday.toDateString()) {
