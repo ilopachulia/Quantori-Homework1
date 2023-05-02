@@ -1,0 +1,59 @@
+.listContainer {
+  width: 70%;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.taskCheckContainer input[type="checkbox"] {
+  margin-right: 30px;
+}
+
+.taskCheckContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.taskName {
+  font-size: 20px;
+  line-height: 25px;
+  color: #1d1d1d;
+}
+
+.checkedCategory {
+  margin-right: 10px;
+  border-radius: 6px;
+}
+.dateElement {
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+
+  color: #838383;
+}
+.taskDetails {
+  display: flex;
+  justify-content: space-between;
+}
+
+.completed {
+  color: grey !important;
+}
+.completedCategory {
+  background-color: #f5f5f5;
+  color: #838383;
+}
+
+.checkMark:checked {
+  accent-color: #d3d3d3;
+}
