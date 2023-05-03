@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import classes from "./modal.module.css";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
+import Button from "../Button/button";
+import Input from "../Input/input";
 import { makeHttpRequest } from "../../HelperFunctions/makeHttpRequest";
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, onAddTask }) => {
   const taskNameRef = useRef();
   const healthRef = useRef();
   const workRef = useRef();
@@ -14,10 +14,10 @@ const Modal = ({ onClose }) => {
 
   const taskAddHandler = () => {
     const taskName = taskNameRef.current.value;
-    const health = healthRef.current.checked ? "Health" : "";
-    const work = workRef.current.checked ? "Work" : "";
-    const home = homeRef.current.checked ? "Home" : "";
-    const other = otherRef.current.checked ? "Other" : "";
+    const health = healthRef.current.checked ? "health" : "";
+    const work = workRef.current.checked ? "work" : "";
+    const home = homeRef.current.checked ? "home" : "";
+    const other = otherRef.current.checked ? "other" : "";
     const date = dateRef.current.value;
     const categories = [health, work, home, other].filter(Boolean).join(", ");
 
@@ -28,9 +28,10 @@ const Modal = ({ onClose }) => {
       completed: false,
     };
 
-    makeHttpRequest("http://localhost:3000/tasks", "POST", newTask)
+    makeHttpRequest("http://localhost:3004/tasks", "POST", newTask)
       .then((data) => {
         onClose();
+        onAddTask(newTask);
       })
       .catch((error) => console.error(error));
   };
@@ -54,7 +55,7 @@ const Modal = ({ onClose }) => {
               id="health"
             />
             <label htmlFor="health" className={classes.health_label}>
-              <span className={classes.checkbox_text}>Health</span>
+              <span className={classes.checkbox_text}>health</span>
             </label>
             <input
               ref={workRef}
@@ -63,7 +64,7 @@ const Modal = ({ onClose }) => {
               id="work"
             />
             <label htmlFor="work" className={classes.work_label}>
-              <span className={classes.checkbox_text}>Work</span>
+              <span className={classes.checkbox_text}>work</span>
             </label>
             <input
               ref={homeRef}
@@ -72,7 +73,7 @@ const Modal = ({ onClose }) => {
               className={classes.home}
             />
             <label htmlFor="home" className={classes.home_label}>
-              <span className={classes.checkbox_text}>Home</span>
+              <span className={classes.checkbox_text}>home</span>
             </label>
             <input
               ref={otherRef}
@@ -81,7 +82,7 @@ const Modal = ({ onClose }) => {
               className={classes.other}
             />
             <label htmlFor="other" className={classes.other_label}>
-              <span className={classes.checkbox_text}>Other</span>
+              <span className={classes.checkbox_text}>other</span>
             </label>
           </div>
           <div>

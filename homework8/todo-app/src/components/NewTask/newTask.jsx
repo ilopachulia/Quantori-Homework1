@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Button from "../Button/Button";
+import Button from "../Button/button";
 import Modal from "../Modal/modal";
 
-const NewTask = () => {
+const NewTask = ({ onAddTask }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleButtonClick = () => {
@@ -21,7 +21,7 @@ const NewTask = () => {
         styles="newTask"
         onClick={handleButtonClick}
       />
-      {showModal && <Modal onClose={handleModalClose} />}
+      {showModal && <Modal onAddTask={onAddTask} onClose={handleModalClose} />}
     </div>
   );
 };

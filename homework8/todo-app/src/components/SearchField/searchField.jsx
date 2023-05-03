@@ -1,9 +1,10 @@
 import React from "react";
-import Input from "../Input/Input";
+import Input from "../Input/input";
 
-const SearchField = () => {
-  const onChangeHandler = () => {
-    console.log("searching");
+const SearchField = ({ onSearchChange }) => {
+  const onChangeHandler = (event) => {
+    const searchValue = event.target.value;
+    onSearchChange(searchValue); // pass the value to the parent component
   };
   return (
     <Input
