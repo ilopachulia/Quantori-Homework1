@@ -1,0 +1,19 @@
+.weather_container {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.temperature {
+  color: #000000;
+  font-weight: 700;
+  margin-right: 60px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+.location {
+  color: #838383;
+}

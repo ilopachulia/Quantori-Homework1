@@ -1,0 +1,74 @@
+.listItem_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.input {
+  margin-right: 20px;
+}
+
+.listItem {
+  margin-right: 300px;
+}
+
+.categoryAndDateContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deleteIcon {
+  border: none;
+  background: none;
+}
+
+.completed_list {
+  color: #838383;
+}
+
+.completed_list input[type="checkbox"] {
+  accent-color: #d3d3d3;
+}
+
+.health {
+  background-color: rgba(60, 134, 244, 0.31);
+  color: #0053cf;
+}
+.work {
+  background-color: #e8d7ff;
+  color: #9747ff;
+}
+
+.home {
+  background-color: #e2f7e2;
+  color: #639462;
+}
+
+.other {
+  background-color: #ffecc7;
+  color: #ea8c00;
+}
+
+.health,
+.work,
+.home,
+.other {
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.date {
+  color: #838383;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  font-style: italic;
+}

@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "title": "task1",
+      "category": "home",
+      "date": "2023-05-09",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "task2",
+      "category": "health",
+      "date": "2023-05-14",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "task3",
+      "category": "other",
+      "date": "2023-05-15",
+      "completed": true,
+      "id": 3
+    }
+  ]
+}
