@@ -1,16 +1,19 @@
 import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
 import classes from "./modal.module.css";
-import Button from "../Button/button";
-import Input from "../Input/input";
+import Button from "../Button/Button";
+import Input from "../Input/Input";
+import { createTask } from "../../store/task/task.action";
 import { makeHttpRequest } from "../../HelperFunctions/makeHttpRequest";
 
-const Modal = ({ onClose, onAddTask }) => {
+const Modal = ({ onClose }) => {
   const taskNameRef = useRef();
   const healthRef = useRef();
   const workRef = useRef();
   const homeRef = useRef();
   const otherRef = useRef();
   const dateRef = useRef();
+  const dispatch = useDispatch();
 
   const taskAddHandler = () => {
     const taskName = taskNameRef.current.value;
@@ -29,11 +32,14 @@ const Modal = ({ onClose, onAddTask }) => {
     };
 
     makeHttpRequest("http://localhost:3004/tasks", "POST", newTask)
-      .then((data) => {
+      .then((task) => {
+        dispatch(createTask(task));
         onClose();
-        onAddTask(newTask);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.log(error);
+      });
+    onClose();
   };
 
   return (

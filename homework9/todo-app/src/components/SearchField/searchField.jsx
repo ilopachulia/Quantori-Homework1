@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "../Input/input";
+import Input from "../Input/Input";
 
 const SearchField = ({ onSearchChange }) => {
   const onChangeHandler = (event) => {
