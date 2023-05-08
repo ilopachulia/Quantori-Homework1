@@ -7,6 +7,7 @@ import NewTask from "./components/NewTask/newTask";
 import SearchField from "./components/SearchField/searchField";
 import { makeHttpRequest } from "./HelperFunctions/makeHttpRequest";
 import { setTasks } from "./store/task/task.action";
+import Navigation from "./components/DropDown/navigation";
 
 function App() {
   const [searchField, setSearchField] = useState("");
@@ -38,6 +39,7 @@ function App() {
           <SearchField onSearchChange={onSearchChange} />
           <NewTask />
         </div>
+        <Navigation />
         <List filteredTasks={filteredTasks} />
       </div>
     </div>

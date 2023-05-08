@@ -9,7 +9,7 @@ const List = ({ filteredTasks }) => {
           <h1>All Tasks</h1>
           {filteredTasks.map((item) => {
             if (!item.completed) {
-              return <Task key={item.id} item={item} />;
+              return <Task key={item.id} item={item} completed={false} />;
             }
             return null;
           })}
@@ -21,7 +21,7 @@ const List = ({ filteredTasks }) => {
           <h1>completed Tasks</h1>
           {filteredTasks.map((item) => {
             if (item.completed) {
-              return <Task key={item.id} item={item} />;
+              return <Task key={item.id} item={item} completed={true} />;
             }
             return null;
           })}

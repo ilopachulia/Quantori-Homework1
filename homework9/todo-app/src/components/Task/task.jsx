@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { deleteTask, updateTask } from "../../store/task/task.action";
 import { makeHttpRequest } from "../../HelperFunctions/makeHttpRequest";
 
-const Task = ({ item }) => {
+const Task = ({ item, completed }) => {
   const dispatch = useDispatch();
 
   const getCategoryClass = (category) => {
@@ -42,10 +42,16 @@ const Task = ({ item }) => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className={classes.listItem_container} key={item.id}>
+    <div
+      className={`${classes.listItem_container} ${
+        completed ? classes.completed_list : ""
+      }`}
+      key={item.id}
+    >
       <input
         className={classes.input}
         type="checkbox"
+        checked={completed}
         onChange={() => handleComplete(item)}
       />
       <div className={classes.listItem}>
