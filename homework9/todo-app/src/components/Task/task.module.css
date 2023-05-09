@@ -11,15 +11,21 @@
 }
 
 .listItem {
-  margin-right: 300px;
+  margin-right: 250px;
 }
 
 .categoryAndDateContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 150px;
 }
 
+.editAndDeleteContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+}
 .deleteIcon {
   border: none;
   background: none;

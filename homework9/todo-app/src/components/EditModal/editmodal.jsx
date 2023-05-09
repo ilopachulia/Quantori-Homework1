@@ -1,99 +1,113 @@
-import React, { useRef } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import classes from "./modal.module.css";
+
 import Button from "../Button/Button";
 import Input from "../Input/Input";
-import { createTask } from "../../store/task/task.action";
+import { useDispatch } from "react-redux";
 import { makeHttpRequest } from "../../HelperFunctions/makeHttpRequest";
+import { updateTask } from "../../store/task/task.action";
 
-const Modal = ({ onClose }) => {
-  const taskNameRef = useRef();
-  const healthRef = useRef();
-  const workRef = useRef();
-  const homeRef = useRef();
-  const otherRef = useRef();
-  const dateRef = useRef();
+const EditModal = ({ onClose, editTask }) => {
+  const {
+    id,
+    title: initialTitle,
+    category: initialCategory,
+    date: initialDate,
+  } = editTask;
   const dispatch = useDispatch();
+  const [title, setTitle] = useState(initialTitle);
+  const [category, setCategory] = useState(initialCategory);
+  const [date, setDate] = useState(initialDate);
 
-  const taskAddHandler = () => {
-    const taskName = taskNameRef.current.value;
-    const health = healthRef.current.checked ? "health" : "";
-    const work = workRef.current.checked ? "work" : "";
-    const home = homeRef.current.checked ? "home" : "";
-    const other = otherRef.current.checked ? "other" : "";
-    const date = dateRef.current.value;
-    const categories = [health, work, home, other].filter(Boolean).join(", ");
-
-    const newTask = {
-      title: taskName,
-      category: categories,
-      date: date,
-      completed: false,
-    };
-
-    makeHttpRequest("http://localhost:3004/tasks", "POST", newTask)
+  const taskEditHandler = () => {
+    const updatedTask = { id, title, category, date };
+    makeHttpRequest(`http://localhost:3004/tasks/${id}`, "PUT", updatedTask)
       .then((task) => {
-        dispatch(createTask(task));
+        dispatch(updateTask(task));
         onClose();
       })
       .catch((error) => {
         console.log(error);
       });
+  };
 
-    onClose();
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+  };
+
+  const handleDateChange = (event) => {
+    setDate(event.target.value);
   };
 
   return (
     <div className={classes.modal}>
       <div className={classes.content}>
-        <h2>Add New Task</h2>
+        <h2>Edit Task</h2>
         <Input
           styles="taskName"
           type="text"
           placeholder="Task Title"
-          inputRef={(el) => (taskNameRef.current = el)}
+          defaultValue={title}
+          onChange={handleTitleChange}
         />
         <div className={classes.checkboxAndDateContainer}>
           <div>
             <input
-              ref={healthRef}
               className={classes.health}
-              type="checkbox"
+              type="radio"
               id="health"
+              value="health"
+              checked={category === "health"}
+              onChange={handleCategoryChange}
             />
             <label htmlFor="health" className={classes.health_label}>
               <span className={classes.checkbox_text}>health</span>
             </label>
             <input
-              ref={workRef}
               className={classes.work}
-              type="checkbox"
+              type="radio"
               id="work"
+              value="work"
+              checked={category === "work"}
+              onChange={handleCategoryChange}
             />
             <label htmlFor="work" className={classes.work_label}>
               <span className={classes.checkbox_text}>work</span>
             </label>
             <input
-              ref={homeRef}
-              type="checkbox"
+              type="radio"
               id="home"
               className={classes.home}
+              value="home"
+              checked={category === "home"}
+              onChange={handleCategoryChange}
             />
             <label htmlFor="home" className={classes.home_label}>
               <span className={classes.checkbox_text}>home</span>
             </label>
             <input
-              ref={otherRef}
-              type="checkbox"
+              type="radio"
               id="other"
               className={classes.other}
+              value="other"
+              checked={category === "other"}
+              onChange={handleCategoryChange}
             />
             <label htmlFor="other" className={classes.other_label}>
               <span className={classes.checkbox_text}>other</span>
             </label>
           </div>
           <div>
-            <input ref={dateRef} className={classes.date} type="date" />
+            <input
+              className={classes.date}
+              type="date"
+              value={date}
+              onChange={handleDateChange}
+            />
           </div>
         </div>
         <div className={classes.button_container}>
@@ -105,14 +119,13 @@ const Modal = ({ onClose }) => {
           />
           <Button
             type="button"
-            placeholder="Add Task"
+            placeholder="Update Task"
             styles="add"
-            onClick={taskAddHandler}
+            onClick={taskEditHandler}
           />
         </div>
       </div>
     </div>
   );
 };
-
-export default Modal;
+export default EditModal;

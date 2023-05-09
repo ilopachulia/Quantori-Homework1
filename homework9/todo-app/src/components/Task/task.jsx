@@ -1,11 +1,13 @@
 import React from "react";
 import classes from "./task.module.css";
 import deleteIcon from "../../assets/Shape.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { deleteTask, updateTask } from "../../store/task/task.action";
 import { makeHttpRequest } from "../../HelperFunctions/makeHttpRequest";
 
-const Task = ({ item, completed }) => {
+const Task = ({ item, completed, editHandler }) => {
   const dispatch = useDispatch();
 
   const getCategoryClass = (category) => {
@@ -41,6 +43,11 @@ const Task = ({ item, completed }) => {
       })
       .catch((error) => console.log(error));
   };
+
+  const dataLifter = (task) => {
+    editHandler(task);
+  };
+
   return (
     <div
       className={`${classes.listItem_container} ${
@@ -57,22 +64,23 @@ const Task = ({ item, completed }) => {
       <div className={classes.listItem}>
         <li>{item.title}</li>
         <div className={classes.categoryAndDateContainer}>
-          <div
-            className={`${classes.categoryAndDateContainer} ${getCategoryClass(
-              item.category
-            )}`}
-          >
+          <div className={`${getCategoryClass(item.category)}`}>
             {item.category}
           </div>
           <div className={classes.date}>{item.date}</div>
         </div>
       </div>
-      <button
-        className={classes.deleteIcon}
-        onClick={() => deleteHandler(item.id)}
-      >
-        <img src={deleteIcon} alt="Delete" />
-      </button>
+      <div className={classes.editAndDeleteContainer}>
+        {!completed && (
+          <FontAwesomeIcon icon={faEdit} onClick={() => dataLifter(item)} />
+        )}
+        <button
+          className={classes.deleteIcon}
+          onClick={() => deleteHandler(item.id)}
+        >
+          <img src={deleteIcon} alt="Delete" />
+        </button>
+      </div>
     </div>
   );
 };

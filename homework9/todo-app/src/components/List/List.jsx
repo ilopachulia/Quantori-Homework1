@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "../Task/task";
 
-const List = ({ filteredTasks }) => {
+const List = ({ filteredTasks, editHandler }) => {
   return (
     <div>
       {filteredTasks.some((item) => !item.completed) && (
@@ -9,7 +9,14 @@ const List = ({ filteredTasks }) => {
           <h1>All Tasks</h1>
           {filteredTasks.map((item) => {
             if (!item.completed) {
-              return <Task key={item.id} item={item} completed={false} />;
+              return (
+                <Task
+                  key={item.id}
+                  item={item}
+                  completed={false}
+                  editHandler={editHandler}
+                />
+              );
             }
             return null;
           })}

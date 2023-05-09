@@ -1,32 +1,10 @@
 {
   "tasks": [
     {
-      "title": "task1",
-      "category": "health",
-      "date": "2023-05-02",
-      "completed": false,
-      "id": 1
-    },
-    {
-      "title": "task4",
-      "category": "other",
-      "date": "2023-05-09",
-      "completed": true,
-      "id": 4
-    },
-    {
-      "title": "task7",
-      "category": "home",
-      "date": "2023-05-17",
-      "completed": true,
-      "id": 7
-    },
-    {
-      "title": "task8",
-      "category": "other",
-      "date": "2023-05-15",
-      "completed": false,
-      "id": 8
+      "id": 1,
+      "title": "task",
+      "category": "work",
+      "date": "2023-05-02"
     }
   ]
 }

@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import NewTask from "./components/NewTask/newTask";
@@ -8,11 +9,14 @@ import SearchField from "./components/SearchField/searchField";
 import { makeHttpRequest } from "./HelperFunctions/makeHttpRequest";
 import { setTasks } from "./store/task/task.action";
 import Navigation from "./components/DropDown/navigation";
+import EditModal from "./components/EditModal/editmodal";
 
 function App() {
   const [searchField, setSearchField] = useState("");
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.task.tasks);
+  const [showModal, setShowModal] = useState(false);
+  const [editTask, setEditTask] = useState(null);
 
   useEffect(() => {
     makeHttpRequest("http://localhost:3004/tasks")
@@ -31,6 +35,15 @@ function App() {
     setSearchField(searchFieldString);
   };
 
+  const editHandler = (task) => {
+    setShowModal(true);
+    setEditTask(task);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="main">
       <div className="wrapper">
@@ -40,7 +53,10 @@ function App() {
           <NewTask />
         </div>
         <Navigation />
-        <List filteredTasks={filteredTasks} />
+        <List filteredTasks={filteredTasks} editHandler={editHandler} />
+        {showModal && (
+          <EditModal editTask={editTask} onClose={handleModalClose} />
+        )}
       </div>
     </div>
   );
