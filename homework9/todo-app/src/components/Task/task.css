@@ -1,0 +1,85 @@
+.listItem_Container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.input {
+  margin-right: 20px;
+}
+
+.listItem {
+  margin-right: 250px;
+}
+
+.CategoryAndDateContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+}
+
+.EditAndDeleteContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+}
+.EditAndDeleteContainer button,
+.EditAndDeleteContainer .icon {
+  cursor: pointer;
+}
+.deleteIcon {
+  border: none;
+  background: none;
+}
+
+.completedList {
+  color: #838383;
+}
+
+.completedList input[type="checkbox"] {
+  accent-color: #d3d3d3;
+}
+
+.healthCategory {
+  background-color: rgba(60, 134, 244, 0.31);
+  color: #0053cf;
+}
+.workCategory {
+  background-color: #e8d7ff;
+  color: #9747ff;
+}
+
+.homeCategory {
+  background-color: #e2f7e2;
+  color: #639462;
+}
+
+.otherCategory {
+  background-color: #ffecc7;
+  color: #ea8c00;
+}
+
+.healthCategory,
+.workCategory,
+.homeCategory,
+.otherCategory {
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.listDate {
+  color: #838383;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  font-style: italic;
+  width: 100px;
+}
