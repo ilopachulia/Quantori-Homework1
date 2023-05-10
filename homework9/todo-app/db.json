@@ -1,10 +1,25 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "task",
-      "category": "work",
-      "date": "2023-05-02"
+      "title": "task123",
+      "category": "home",
+      "date": "2023-05-23",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "title": "asdfg",
+      "category": "home",
+      "date": "",
+      "completed": true,
+      "id": 2
+    },
+    {
+      "title": "asdfghrtg",
+      "category": "home",
+      "date": "2023-05-09",
+      "completed": true,
+      "id": 3
     }
   ]
 }

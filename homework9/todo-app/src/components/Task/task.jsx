@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./task.module.css";
 import deleteIcon from "../../assets/Shape.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,11 +23,31 @@ const Task = ({ item, completed, editHandler }) => {
     }
   };
 
+  useEffect(() => {
+    const channel = new BroadcastChannel("taskChannel");
+    channel.onmessage = (event) => {
+      if (event.data.type === "delete") {
+        if (event.data.id === item.id) {
+          dispatch(deleteTask(item.id));
+        }
+      } else if (event.data.type === "update") {
+        if (event.data.task.id === item.id) {
+          dispatch(updateTask(event.data.task));
+        }
+      }
+    };
+
+    return () => {
+      channel.close();
+    };
+  }, [item, dispatch]);
+
   const deleteHandler = (id) => {
     const url = `http://localhost:3004/tasks/${id}`;
     makeHttpRequest(url, "DELETE")
       .then(() => {
-        dispatch(deleteTask(id));
+        const channel = new BroadcastChannel("taskChannel");
+        channel.postMessage({ type: "delete", id: id });
       })
       .catch((error) => {
         console.log(error);
@@ -39,7 +59,8 @@ const Task = ({ item, completed, editHandler }) => {
     const updatedTask = { ...task, completed: !task.completed };
     makeHttpRequest(url, "PUT", updatedTask)
       .then(() => {
-        dispatch(updateTask(updatedTask));
+        const channel = new BroadcastChannel("taskChannel");
+        channel.postMessage({ type: "update", task: updatedTask });
       })
       .catch((error) => console.log(error));
   };
@@ -72,7 +93,11 @@ const Task = ({ item, completed, editHandler }) => {
       </div>
       <div className={classes.editAndDeleteContainer}>
         {!completed && (
-          <FontAwesomeIcon icon={faEdit} onClick={() => dataLifter(item)} />
+          <FontAwesomeIcon
+            className={classes.icon}
+            icon={faEdit}
+            onClick={() => dataLifter(item)}
+          />
         )}
         <button
           className={classes.deleteIcon}
