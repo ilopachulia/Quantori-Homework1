@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import classes from "./modal.module.css";
+import "./modal.css";
 
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import { useDispatch } from "react-redux";
 import { makeHttpRequest } from "../../HelperFunctions/makeHttpRequest";
 import { updateTask } from "../../store/task/task.action";
+import { ITask } from "../../shared-Interfaces/sharedInterfaces";
 
-const EditModal = ({ onClose, editTask }) => {
+interface IEditModalProps {
+  onClose: () => void;
+  editTask: ITask;
+}
+
+const EditModal = ({ onClose, editTask }: IEditModalProps) => {
   const {
     id,
     title: initialTitle,
@@ -20,32 +26,32 @@ const EditModal = ({ onClose, editTask }) => {
   const [date, setDate] = useState(initialDate);
 
   const taskEditHandler = () => {
-    const updatedTask = { id, title, category, date };
+    const updatedTask: ITask = { id, title, category, date };
     makeHttpRequest(`http://localhost:3004/tasks/${id}`, "PUT", updatedTask)
-      .then((task) => {
+      .then((task: ITask) => {
         dispatch(updateTask(task));
         onClose();
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         console.log(error);
       });
   };
 
-  const handleTitleChange = (event) => {
+  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
 
-  const handleCategoryChange = (event) => {
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCategory(event.target.value);
   };
 
-  const handleDateChange = (event) => {
+  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDate(event.target.value);
   };
 
   return (
-    <div className={classes.modal}>
-      <div className={classes.content}>
+    <div className="modal">
+      <div className="content">
         <h2>Edit Task</h2>
         <Input
           styles="taskName"
@@ -54,63 +60,63 @@ const EditModal = ({ onClose, editTask }) => {
           defaultValue={title}
           onChange={handleTitleChange}
         />
-        <div className={classes.checkboxAndDateContainer}>
+        <div className="checkboxAndDateContainer">
           <div>
             <input
-              className={classes.health}
+              className="health"
               type="radio"
               id="health"
               value="health"
               checked={category === "health"}
               onChange={handleCategoryChange}
             />
-            <label htmlFor="health" className={classes.health_label}>
-              <span className={classes.checkbox_text}>health</span>
+            <label htmlFor="health" className="health_label">
+              <span className="checkbox_text">health</span>
             </label>
             <input
-              className={classes.work}
+              className="work"
               type="radio"
               id="work"
               value="work"
               checked={category === "work"}
               onChange={handleCategoryChange}
             />
-            <label htmlFor="work" className={classes.work_label}>
-              <span className={classes.checkbox_text}>work</span>
+            <label htmlFor="work" className="work_label">
+              <span className="checkbox_text">work</span>
             </label>
             <input
               type="radio"
               id="home"
-              className={classes.home}
+              className="home"
               value="home"
               checked={category === "home"}
               onChange={handleCategoryChange}
             />
-            <label htmlFor="home" className={classes.home_label}>
-              <span className={classes.checkbox_text}>home</span>
+            <label htmlFor="home" className="home_label">
+              <span className="checkbox_text">home</span>
             </label>
             <input
               type="radio"
               id="other"
-              className={classes.other}
+              className="other"
               value="other"
               checked={category === "other"}
               onChange={handleCategoryChange}
             />
-            <label htmlFor="other" className={classes.other_label}>
-              <span className={classes.checkbox_text}>other</span>
+            <label htmlFor="other" className="other_label">
+              <span className="checkbox_text">other</span>
             </label>
           </div>
           <div>
             <input
-              className={classes.date}
+              className="date"
               type="date"
               value={date}
               onChange={handleDateChange}
             />
           </div>
         </div>
-        <div className={classes.button_container}>
+        <div className="button_container">
           <Button
             type="button"
             placeholder="cancel"

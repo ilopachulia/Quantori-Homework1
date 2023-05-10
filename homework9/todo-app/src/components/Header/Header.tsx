@@ -1,9 +1,9 @@
-import classes from "./header.module.css";
+import "./header.css";
 import Weather from "../WeatherWidget/weather";
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
-    <div className={classes.header_container}>
+    <div className="header_container">
       <h1>To Do List</h1>
       <Weather />
     </div>

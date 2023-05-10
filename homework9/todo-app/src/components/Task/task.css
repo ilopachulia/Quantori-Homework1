@@ -1,4 +1,4 @@
-.listItem_container {
+.listItem_Container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -14,20 +14,20 @@
   margin-right: 250px;
 }
 
-.categoryAndDateContainer {
+.CategoryAndDateContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 150px;
 }
 
-.editAndDeleteContainer {
+.EditAndDeleteContainer {
   display: flex;
   justify-content: space-between;
   width: 50px;
 }
-.editAndDeleteContainer button, 
-.editAndDeleteContainer .icon {
+.EditAndDeleteContainer button,
+.EditAndDeleteContainer .icon {
   cursor: pointer;
 }
 .deleteIcon {
@@ -35,37 +35,37 @@
   background: none;
 }
 
-.completed_list {
+.completedList {
   color: #838383;
 }
 
-.completed_list input[type="checkbox"] {
+.completedList input[type="checkbox"] {
   accent-color: #d3d3d3;
 }
 
-.health {
+.healthCategory {
   background-color: rgba(60, 134, 244, 0.31);
   color: #0053cf;
 }
-.work {
+.workCategory {
   background-color: #e8d7ff;
   color: #9747ff;
 }
 
-.home {
+.homeCategory {
   background-color: #e2f7e2;
   color: #639462;
 }
 
-.other {
+.otherCategory {
   background-color: #ffecc7;
   color: #ea8c00;
 }
 
-.health,
-.work,
-.home,
-.other {
+.healthCategory,
+.workCategory,
+.homeCategory,
+.otherCategory {
   padding: 2px 8px;
   border-radius: 5px;
   font-style: normal;
@@ -74,11 +74,12 @@
   margin-right: 10px;
 }
 
-.date {
+.listDate {
   color: #838383;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   font-style: italic;
+  width: 100px;
 }

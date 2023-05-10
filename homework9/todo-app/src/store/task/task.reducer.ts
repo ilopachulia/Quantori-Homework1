@@ -1,10 +1,20 @@
 import { TASK_ACTION_TYPES } from "./task.types";
+import { ITask } from "../../shared-Interfaces/sharedInterfaces";
 
-const INITIAL_STATE = {
+interface IAction {
+  type: string;
+  payload: any;
+}
+
+interface IState {
+  tasks: ITask[];
+}
+
+const INITIAL_STATE: IState = {
   tasks: [],
 };
 
-export const taskReducer = (state = INITIAL_STATE, action) => {
+export const taskReducer = (state: IState = INITIAL_STATE, action: IAction) => {
   const { type, payload } = action;
 
   switch (type) {

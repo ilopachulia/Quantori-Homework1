@@ -1,10 +1,11 @@
-import React, { Fragment, useEffect } from "react";
-import classes from "./navigation.module.css";
+import { Fragment, useEffect } from "react";
+import "./navigation.css";
 
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { makeHttpRequest } from "../../HelperFunctions/makeHttpRequest";
 import { useDispatch } from "react-redux";
 import { setTasks } from "../../store/task/task.action";
+import { ITask } from "../../shared-Interfaces/sharedInterfaces";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -18,27 +19,28 @@ const Navigation = () => {
     }
     makeHttpRequest(url)
       .then((data) => {
-        dispatch(setTasks(data));
+        const tasks = data as ITask[];
+        dispatch(setTasks(tasks));
       })
       .catch((error) => console.error(error));
   }, [dispatch, category]);
 
   return (
     <Fragment>
-      <nav className={classes.navigation}>
-        <NavLink to="/all" className={classes.navlink}>
+      <nav className="navigation">
+        <NavLink to="/all" className="navlink">
           All
         </NavLink>
-        <NavLink to="/home" className={classes.navlink}>
+        <NavLink to="/home" className="navlink">
           Home Tasks
         </NavLink>
-        <NavLink to="/health" className={classes.navlink}>
+        <NavLink to="/health" className="navlink">
           Health Tasks
         </NavLink>
-        <NavLink to="/work" className={classes.navlink}>
+        <NavLink to="/work" className="navlink">
           Work Tasks
         </NavLink>
-        <NavLink to="/other" className={classes.navlink}>
+        <NavLink to="/other" className="navlink">
           Other Tasks
         </NavLink>
       </nav>

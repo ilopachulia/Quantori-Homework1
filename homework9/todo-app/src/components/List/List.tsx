@@ -1,7 +1,13 @@
 import React from "react";
 import Task from "../Task/task";
+import { ITask } from "../../shared-Interfaces/sharedInterfaces";
 
-const List = ({ filteredTasks, editHandler }) => {
+interface IListProps {
+  filteredTasks: ITask[];
+  editHandler: (task: ITask) => void;
+}
+
+const List: React.FC<IListProps> = ({ filteredTasks, editHandler }) => {
   return (
     <div>
       {filteredTasks.some((item) => !item.completed) && (
@@ -25,7 +31,7 @@ const List = ({ filteredTasks, editHandler }) => {
 
       {filteredTasks.some((item) => item.completed) && (
         <div>
-          <h1>completed Tasks</h1>
+          <h1>Completed Tasks</h1>
           {filteredTasks.map((item) => {
             if (item.completed) {
               return <Task key={item.id} item={item} completed={true} />;

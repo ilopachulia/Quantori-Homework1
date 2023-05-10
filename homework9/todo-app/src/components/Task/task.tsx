@@ -1,25 +1,32 @@
 import React, { useEffect } from "react";
-import classes from "./task.module.css";
-import deleteIcon from "../../assets/Shape.svg";
+import "./task.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { deleteTask, updateTask } from "../../store/task/task.action";
 import { makeHttpRequest } from "../../HelperFunctions/makeHttpRequest";
+import { ITask } from "../../shared-Interfaces/sharedInterfaces";
 
-const Task = ({ item, completed, editHandler }) => {
+interface ITaskProps {
+  item: ITask;
+  completed: boolean;
+  editHandler?: (task: ITask) => void;
+}
+
+const Task = ({ item, completed, editHandler }: ITaskProps) => {
   const dispatch = useDispatch();
 
-  const getCategoryClass = (category) => {
+  const getCategoryClass = (category?: string) => {
     switch (category) {
       case "health":
-        return classes.health;
+        return "healthCategory";
       case "work":
-        return classes.work;
+        return "workCategory";
       case "home":
-        return classes.home;
+        return "homeCategory";
       default:
-        return classes.other;
+        return "otherCategory";
     }
   };
 
@@ -42,7 +49,7 @@ const Task = ({ item, completed, editHandler }) => {
     };
   }, [item, dispatch]);
 
-  const deleteHandler = (id) => {
+  const deleteHandler = (id?: number) => {
     const url = `http://localhost:3004/tasks/${id}`;
     makeHttpRequest(url, "DELETE")
       .then(() => {
@@ -54,7 +61,7 @@ const Task = ({ item, completed, editHandler }) => {
       });
   };
 
-  const handleComplete = (task) => {
+  const handleComplete = (task: ITask) => {
     const url = `http://localhost:3004/tasks/${task.id}`;
     const updatedTask = { ...task, completed: !task.completed };
     makeHttpRequest(url, "PUT", updatedTask)
@@ -65,46 +72,45 @@ const Task = ({ item, completed, editHandler }) => {
       .catch((error) => console.log(error));
   };
 
-  const dataLifter = (task) => {
-    editHandler(task);
+  const dataLifter = (task: ITask) => {
+    if (editHandler) {
+      editHandler(task);
+    }
   };
 
   return (
     <div
-      className={`${classes.listItem_container} ${
-        completed ? classes.completed_list : ""
-      }`}
+      className={"listItem_Container " + (completed ? "completedList" : "")}
       key={item.id}
     >
       <input
-        className={classes.input}
+        className="input"
         type="checkbox"
         checked={completed}
         onChange={() => handleComplete(item)}
       />
-      <div className={classes.listItem}>
+      <div className="listItem">
         <li>{item.title}</li>
-        <div className={classes.categoryAndDateContainer}>
+        <div className="CategoryAndDateContainer">
           <div className={`${getCategoryClass(item.category)}`}>
             {item.category}
           </div>
-          <div className={classes.date}>{item.date}</div>
+          <div className="listDate">{item.date}</div>
         </div>
       </div>
-      <div className={classes.editAndDeleteContainer}>
+      <div className="EditAndDeleteContainer">
         {!completed && (
           <FontAwesomeIcon
-            className={classes.icon}
+            className="icon"
             icon={faEdit}
             onClick={() => dataLifter(item)}
           />
         )}
-        <button
-          className={classes.deleteIcon}
+        <FontAwesomeIcon
+          icon={faTrash}
+          className="deleteIcon"
           onClick={() => deleteHandler(item.id)}
-        >
-          <img src={deleteIcon} alt="Delete" />
-        </button>
+        />
       </div>
     </div>
   );
